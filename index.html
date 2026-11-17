@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ICC Legends & Champions Encyclopedia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+</head>
+<body>
+  <!-- Dynamic National Theme Ambient Shader Background -->
+  <div class="ambient-bg" aria-hidden="true">
+    <div class="ambient-orb orb-1"></div>
+    <div class="ambient-orb orb-2"></div>
+    <div class="grid-overlay"></div>
+  </div>
+
+  <!-- Top Navigation Bar -->
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-badge">ICC ARCHIVE</span>
+      <h1>CRICKET <span class="accent-text">LEGENDS</span></h1>
+    </div>
+
+    <nav class="main-nav" aria-label="Primary Views">
+      <button class="nav-btn active" data-view="players">Legends Roster</button>
+      <button class="nav-btn" data-view="trophies">ICC Roll of Honor</button>
+      <button class="nav-btn" data-view="compare">Head-to-Head</button>
+    </nav>
+
+    <a href="https://my-portfolio-green-zeta-91.vercel.app" target="_blank" rel="noopener noreferrer" class="portfolio-btn">
+      <span>Portfolio</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+        <path d="M7 17L17 7M17 7H7M17 7V17" />
+      </svg>
+    </a>
+  </header>
+
+  <main class="container">
+    <!-- VIEW 1: PLAYERS ROSTER -->
+    <section id="view-players" class="view-section active">
+      <div class="hero-banner">
+        <div>
+          <p class="eyebrow">INTERNATIONAL CRICKET HALL OF FAME</p>
+          <h2>World Cup Winners &amp; Immortal Icons</h2>
+        </div>
+        <div class="format-switcher" role="group" aria-label="International Format">
+          <button class="fmt-btn active" data-format="odi">ODI</button>
+          <button class="fmt-btn" data-format="test">TEST</button>
+          <button class="fmt-btn" data-format="t20i">T20I</button>
+        </div>
+      </div>
+
+      <!-- Multi-Criteria Filter Matrix -->
+      <div class="filter-bar">
+        <div class="filter-group">
+          <label for="country-filter">Nation</label>
+          <select id="country-filter">
+            <option value="ALL">All Nations</option>
+            <option value="IND">India</option>
+            <option value="AUS">Australia</option>
+            <option value="SA">South Africa</option>
+            <option value="WI">West Indies</option>
+            <option value="ENG">England</option>
+            <option value="NZ">New Zealand</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="title-filter">ICC Title Won</label>
+          <select id="title-filter">
+            <option value="ALL">All Players &amp; Champions</option>
+            <option value="ODI World Cup">ODI World Cup Winner</option>
+            <option value="T20 World Cup">T20 World Cup Winner</option>
+            <option value="World Test Championship">WTC Champion</option>
+            <option value="Champions Trophy">Champions Trophy Winner</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="role-filter">Role</label>
+          <select id="role-filter">
+            <option value="ALL">All Roles</option>
+            <option value="Batter">Batter</option>
+            <option value="All-Rounder">All-Rounder</option>
+            <option value="Bowler">Bowler</option>
+            <option value="Wicketkeeper">Wicketkeeper-Batter</option>
+          </select>
+        </div>
+
+        <div class="filter-group search-group">
+          <label for="search-input">Search</label>
+          <input type="text" id="search-input" placeholder="Name, jersey, or nickname..." />
+        </div>
+      </div>
+
+      <div id="players-grid" class="players-grid"></div>
+    </section>
+
+    <!-- VIEW 2: ICC ROLL OF HONOR -->
+    <section id="view-trophies" class="view-section">
+      <div class="hero-banner">
+        <div>
+          <p class="eyebrow">GLOBAL TOURNAMENT ARCHIVE</p>
+          <h2>ICC Major Title Winners</h2>
+        </div>
+        <div class="trophy-tabs" role="group" aria-label="Tournament Filter">
+          <button class="trophy-tab active" data-trophy="ALL">All Finals</button>
+          <button class="trophy-tab" data-trophy="ODI World Cup">ODI World Cup</button>
+          <button class="trophy-tab" data-trophy="T20 World Cup">T20 World Cup</button>
+          <button class="trophy-tab" data-trophy="World Test Championship">WTC</button>
+          <button class="trophy-tab" data-trophy="Champions Trophy">Champions Trophy</button>
+        </div>
+      </div>
+
+      <div id="trophies-grid" class="trophies-grid"></div>
+    </section>
+
+    <!-- VIEW 3: HEAD-TO-HEAD COMPARE -->
+    <section id="view-compare" class="view-section">
+      <div class="hero-banner">
+        <div>
+          <p class="eyebrow">TELEMETRY &amp; SILVERWARE DIFF</p>
+          <h2>Head-to-Head International Arena</h2>
+        </div>
+        <div class="format-switcher" role="group" aria-label="Compare Format">
+          <button class="cmp-fmt-btn active" data-format="odi">ODI</button>
+          <button class="cmp-fmt-btn" data-format="test">TEST</button>
+          <button class="cmp-fmt-btn" data-format="t20i">T20I</button>
+        </div>
+      </div>
+
+      <div class="compare-selectors">
+        <div class="selector-box">
+          <label for="compare-p1">Contender 1</label>
+          <select id="compare-p1"></select>
+        </div>
+        <div class="vs-badge">VS</div>
+        <div class="selector-box">
+          <label for="compare-p2">Contender 2</label>
+          <select id="compare-p2"></select>
+        </div>
+      </div>
+
+      <div id="compare-arena" class="compare-arena"></div>
+    </section>
+  </main>
+
+  <!-- Player Dossier Modal -->
+  <div id="dossier-modal" class="modal-backdrop" aria-hidden="true">
+    <div class="dossier-card" role="dialog" aria-modal="true" aria-labelledby="dossier-name">
+      <button id="close-modal" class="close-btn" aria-label="Close Dossier">&times;</button>
+      <div id="dossier-content"></div>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
