@@ -6,50 +6,43 @@ const StadiumAudio = {
     if (!this.ctx && (window.AudioContext || window.webkitAudioContext)) {
       this.ctx = new (window.AudioContext || window.webkitAudioContext)();
     }
-    if (this.ctx && this.ctx.state === "suspended") {
-      this.ctx.resume();
-    }
+    if (this.ctx && this.ctx.state === "suspended") this.ctx.resume();
   },
 
   playBatTok() {
     if (!this.enabled) return;
     this.ensureCtx();
     if (!this.ctx) return;
-
     const now = this.ctx.currentTime;
     const osc = this.ctx.createOscillator();
     const gain = this.ctx.createGain();
     osc.type = "triangle";
-    osc.frequency.setValueAtTime(520, now);
-    osc.frequency.exponentialRampToValueAtTime(140, now + 0.065);
-
-    gain.gain.setValueAtTime(0.22, now);
-    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.07);
-
+    osc.frequency.setValueAtTime(540, now);
+    osc.frequency.exponentialRampToValueAtTime(130, now + 0.07);
+    gain.gain.setValueAtTime(0.25, now);
+    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.075);
     osc.connect(gain);
     gain.connect(this.ctx.destination);
     osc.start(now);
-    osc.stop(now + 0.075);
+    osc.stop(now + 0.08);
   },
 
   playTrophyChime() {
     if (!this.enabled) return;
     this.ensureCtx();
     if (!this.ctx) return;
-
     const now = this.ctx.currentTime;
     [587.33, 880].forEach((freq, idx) => {
       const osc = this.ctx.createOscillator();
       const gain = this.ctx.createGain();
       osc.type = "sine";
       osc.frequency.setValueAtTime(freq, now + idx * 0.06);
-      gain.gain.setValueAtTime(0.11, now + idx * 0.06);
-      gain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.06 + 0.28);
-
+      gain.gain.setValueAtTime(0.12, now + idx * 0.06);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.06 + 0.3);
       osc.connect(gain);
       gain.connect(this.ctx.destination);
       osc.start(now + idx * 0.06);
-      osc.stop(now + idx * 0.06 + 0.3);
+      osc.stop(now + idx * 0.06 + 0.32);
     });
   }
 };
@@ -60,6 +53,7 @@ const StadiumFX = {
   particles: [],
   arcs: [],
   ripples: [],
+  angle: 0,
   mouse: { x: window.innerWidth / 2, y: window.innerHeight / 2 },
   primaryColor: "#1d4ed8",
   secondaryColor: "#f59e0b",
@@ -72,7 +66,7 @@ const StadiumFX = {
       inset: "0",
       width: "100%",
       height: "100%",
-      zIndex: "-1",
+      zIndex: "0",
       pointerEvents: "none"
     });
     document.body.prepend(this.canvas);
@@ -86,19 +80,27 @@ const StadiumFX = {
     });
     window.addEventListener("click", e => {
       this.spawnTrajectoryArc(e.clientX, e.clientY);
-      this.ripples.push({ x: e.clientX, y: e.clientY, r: 4, alpha: 0.55 });
+      this.ripples.push({ x: e.clientX, y: e.clientY, r: 6, alpha: 0.75 });
     });
 
-    for (let i = 0; i < 60; i++) {
+    for (let i = 0; i < 75; i++) {
       this.particles.push({
         x: Math.random() * this.canvas.width,
         y: Math.random() * this.canvas.height,
-        r: Math.random() * 2.1 + 0.6,
-        vx: (Math.random() - 0.5) * 0.35,
-        vy: -Math.random() * 0.42 - 0.1,
-        alpha: Math.random() * 0.5 + 0.15
+        r: Math.random() * 2.6 + 0.9,
+        vx: (Math.random() - 0.5) * 0.45,
+        vy: -Math.random() * 0.5 - 0.15,
+        alpha: Math.random() * 0.65 + 0.25
       });
     }
+
+    // Auto-launch glowing stadium shot arcs every 2.2 seconds so motion is immediately visible
+    setInterval(() => {
+      this.spawnTrajectoryArc(
+        this.canvas.width * (0.2 + Math.random() * 0.6),
+        this.canvas.height * (0.2 + Math.random() * 0.6)
+      );
+    }, 2200);
 
     this.animate();
     this.initScrollRevealAndCounters();
@@ -119,28 +121,41 @@ const StadiumFX = {
     const startX = Math.random() > 0.5 ? 0 : this.canvas.width;
     const startY = this.canvas.height * (0.25 + Math.random() * 0.55);
     const cpX = (startX + targetX) / 2;
-    const cpY = Math.min(startY, targetY) - (130 + Math.random() * 140);
+    const cpY = Math.min(startY, targetY) - (140 + Math.random() * 140);
 
     this.arcs.push({
       startX, startY, cpX, cpY, targetX, targetY,
       t: 0,
-      speed: 0.025,
-      color: Math.random() > 0.4 ? this.secondaryColor : "#38bdf8"
+      speed: 0.022,
+      color: Math.random() > 0.45 ? this.secondaryColor : "#38bdf8"
     });
   },
 
   animate() {
     const { ctx, canvas } = this;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    this.angle += 0.0025;
 
-    // Cursor-reactive floodlight spotlight
-    const grad = ctx.createRadialGradient(this.mouse.x, this.mouse.y, 10, this.mouse.x, this.mouse.y, 360);
-    grad.addColorStop(0, `${this.primaryColor}2d`);
+    // Rotating subtle stadium radar rings in background
+    ctx.save();
+    ctx.translate(canvas.width * 0.5, canvas.height * 0.5);
+    ctx.rotate(this.angle);
+    ctx.strokeStyle = "rgba(56, 189, 248, 0.07)";
+    ctx.lineWidth = 1.5;
+    ctx.setLineDash([14, 18]);
+    ctx.beginPath();
+    ctx.arc(0, 0, Math.min(canvas.width, canvas.height) * 0.36, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.restore();
+
+    // Cursor-reactive floodlight beam
+    const grad = ctx.createRadialGradient(this.mouse.x, this.mouse.y, 10, this.mouse.x, this.mouse.y, 380);
+    grad.addColorStop(0, `${this.primaryColor}38`);
     grad.addColorStop(1, "transparent");
     ctx.fillStyle = grad;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    // Floating floodlight motes
+    // Bright floodlight motes
     this.particles.forEach(p => {
       p.x += p.vx;
       p.y += p.vy;
@@ -157,19 +172,19 @@ const StadiumFX = {
     // Click shockwave ripples
     for (let i = this.ripples.length - 1; i >= 0; i--) {
       const rp = this.ripples[i];
-      rp.r += 3.2;
+      rp.r += 3.6;
       rp.alpha -= 0.018;
       ctx.beginPath();
       ctx.arc(rp.x, rp.y, rp.r, 0, Math.PI * 2);
       ctx.strokeStyle = this.secondaryColor;
       ctx.globalAlpha = Math.max(0, rp.alpha);
-      ctx.lineWidth = 1.5;
+      ctx.lineWidth = 2;
       ctx.stroke();
       ctx.globalAlpha = 1;
       if (rp.alpha <= 0) this.ripples.splice(i, 1);
     }
 
-    // Animated cricket ball seam arcs
+    // Glowing cricket ball seam arcs
     for (let i = this.arcs.length - 1; i >= 0; i--) {
       const a = this.arcs[i];
       a.t += a.speed;
@@ -181,12 +196,12 @@ const StadiumFX = {
       ctx.moveTo(a.startX, a.startY);
       ctx.quadraticCurveTo(a.cpX, a.cpY, x, y);
       ctx.strokeStyle = a.color;
-      ctx.lineWidth = 2;
-      ctx.globalAlpha = 1 - t * 0.72;
+      ctx.lineWidth = 2.5;
+      ctx.globalAlpha = 1 - t * 0.65;
       ctx.stroke();
 
       ctx.beginPath();
-      ctx.arc(x, y, 4.5, 0, Math.PI * 2);
+      ctx.arc(x, y, 5, 0, Math.PI * 2);
       ctx.fillStyle = "#fff";
       ctx.fill();
       ctx.globalAlpha = 1;
@@ -202,7 +217,6 @@ const StadiumFX = {
       entries.forEach(entry => {
         if (!entry.isIntersecting) return;
         entry.target.classList.add("revealed");
-
         const counter = entry.target.querySelector(".count-up");
         if (counter && !counter.dataset.counted) {
           counter.dataset.counted = "true";
@@ -226,8 +240,7 @@ const StadiumFX = {
     const step = now => {
       const progress = Math.min(1, (now - startTime) / duration);
       const eased = 1 - Math.pow(1 - progress, 3);
-      const val = Math.round(eased * target);
-      el.textContent = `${val}${suffix}`;
+      el.textContent = `${Math.round(eased * target)}${suffix}`;
       if (progress < 1) requestAnimationFrame(step);
     };
     requestAnimationFrame(step);
