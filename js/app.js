@@ -2,6 +2,7 @@ let ALL_PLAYERS = [];
 const PAGE_SIZE = 24;
 
 const state = {
+  activePage: "chronicle",
   format: "odi",
   compareFormat: "odi",
   lbFormat: "odi",
@@ -16,6 +17,23 @@ const state = {
   trophyTab: "ALL",
   dreamXI: ["rohit", "tendulkar", "kohli", "ponting", "kallis", "dhoni", "hardik", "warne", "cummins", "bumrah", "mcgrath"]
 };
+
+function switchMainPage(targetPage) {
+  state.activePage = targetPage;
+  document.querySelectorAll(".page-switch-btn").forEach(btn => {
+    btn.classList.toggle("active", btn.dataset.page === targetPage);
+  });
+  document.querySelectorAll(".page-container").forEach(page => {
+    page.classList.toggle("active", page.id === `page-${targetPage}`);
+  });
+  window.scrollTo({ top: 0, behavior: "smooth" });
+
+  if (targetPage === "chronicle") {
+    FX.speakBroadcast("Page 1: The Global Chronicle of International Cricket — Origins, Laws, Formats, and World Championships.");
+  } else {
+    FX.speakBroadcast(`Page 2: ICC Legends & Players Archive (${ALL_PLAYERS.length} icons loaded). Click any player for holographic telemetry.`);
+  }
+}
 
 function getFilteredAndSortedPlayers() {
   const filtered = ALL_PLAYERS.filter(p => {
@@ -91,7 +109,19 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // Initialize Morphological 3D Cards & Broadcast Welcome
   FX.bindMagneticCards();
-  FX.speakBroadcast(`Welcome to the ICC Legends Archive. ${ALL_PLAYERS.length} international icons loaded and ready for telemetry.`);
+  FX.speakBroadcast("Welcome to the Cricket Chronicle. Explore the history and science of the game, or launch the Players & Legends Archive.");
+
+  // Page 1 <-> Page 2 Switchers
+  document.querySelectorAll(".page-switch-btn").forEach(btn => {
+    btn.addEventListener("click", () => switchMainPage(btn.dataset.page));
+  });
+  document.querySelectorAll(".go-to-archive-btn").forEach(btn => {
+    btn.addEventListener("click", () => switchMainPage("archive"));
+  });
+  document.querySelectorAll(".back-to-chronicle-btn").forEach(btn => {
+    btn.addEventListener("click", () => switchMainPage("chronicle"));
+  });
+  document.getElementById("brand-home").addEventListener("click", () => switchMainPage("chronicle"));
 
   // Voice Commentary Toggle
   document.getElementById("voice-toggle").addEventListener("click", e => {
@@ -99,13 +129,13 @@ document.addEventListener("DOMContentLoaded", async () => {
     e.target.classList.toggle("active", FX.voiceEnabled);
     e.target.textContent = FX.voiceEnabled ? "🔊 Voice: ON" : "🔇 Voice: OFF";
     if (FX.voiceEnabled) {
-      FX.speakBroadcast("Broadcast announcer voice activated. Click any player card for live commentary.", true);
+      FX.speakBroadcast("Broadcast announcer voice activated.", true);
     } else if ("speechSynthesis" in window) {
       window.speechSynthesis.cancel();
     }
   });
 
-  // Navigation
+  // Page 2 Sub-Navigation
   document.querySelectorAll(".nav-btn").forEach(btn => {
     btn.addEventListener("click", () => {
       document.querySelectorAll(".nav-btn").forEach(b => b.classList.remove("active"));

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ICC Legends & Champions Encyclopedia</title>
+  <title>Cricket — The Global Chronicle &amp; ICC Legends Archive</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -20,17 +20,14 @@
 
   <!-- Top Navigation Bar -->
   <header class="topbar">
-    <div class="brand">
+    <div class="brand" id="brand-home" style="cursor:pointer;">
       <span class="brand-badge">ICC ARCHIVE</span>
-      <h1>CRICKET <span class="accent-text">LEGENDS</span></h1>
+      <h1>CRICKET <span class="accent-text">CHRONICLE</span></h1>
     </div>
 
-    <nav class="main-nav" aria-label="Primary Views">
-      <button class="nav-btn active" data-view="players">Roster</button>
-      <button class="nav-btn" data-view="dreamxi">Dream XI</button>
-      <button class="nav-btn" data-view="leaderboards">Leaderboards</button>
-      <button class="nav-btn" data-view="trophies">ICC Finals</button>
-      <button class="nav-btn" data-view="compare">H2H</button>
+    <nav class="main-nav" aria-label="Primary Pages">
+      <button class="page-switch-btn active" data-page="chronicle">1. About Cricket</button>
+      <button class="page-switch-btn" data-page="archive">2. Players &amp; Legends</button>
     </nav>
 
     <a href="https://my-portfolio-green-zeta-91.vercel.app" target="_blank" rel="noopener noreferrer" class="portfolio-btn">
@@ -49,188 +46,389 @@
       <button id="voice-toggle" class="voice-toggle-btn" title="Toggle Announcer Voice">🔇 Voice: OFF</button>
     </div>
 
-    <!-- VIEW 1: PLAYERS ROSTER -->
-    <section id="view-players" class="view-section active">
-      <div class="hero-banner">
-        <div>
-          <p class="eyebrow">INTERNATIONAL CRICKET ENCYCLOPEDIA</p>
-          <h2>World Champions &amp; Hall of Famers</h2>
+    <!-- =========================================================
+         PAGE 1: ABOUT CRICKET (~2,000-WORD INTERACTIVE CHRONICLE)
+         ========================================================= -->
+    <article id="page-chronicle" class="page-container active">
+      <header class="chronicle-hero">
+        <div class="chronicle-hero-copy">
+          <p class="eyebrow">THE GENTLEMAN'S GAME • GLOBAL SPORT ENCYCLOPEDIA</p>
+          <h2>The Art, Science, and History of International Cricket</h2>
+          <p class="lead-text">
+            Played across five continents and followed by more than two and a half billion fans, cricket is a sport of rare strategic depth—a chess match fought at ninety miles per hour between bat, ball, weather, and time.
+          </p>
+          <div class="hero-cta-row">
+            <button class="primary-btn go-to-archive-btn">Explore Players &amp; ICC Legends &rarr;</button>
+            <a href="#chapter-origins" class="secondary-btn" style="text-decoration:none;">Read Chronicle (~2,000 Words)</a>
+          </div>
         </div>
-        <div class="format-switcher" role="group" aria-label="International Format">
-          <button class="fmt-btn active" data-format="odi">ODI</button>
-          <button class="fmt-btn" data-format="test">TEST</button>
-          <button class="fmt-btn" data-format="t20i">T20I</button>
+
+        <!-- Morphological Stadium Telemetry Graphic -->
+        <div class="chronicle-hero-graphic">
+          <svg width="100%" height="260" viewBox="0 0 360 260" aria-label="Cricket Stadium Geometry">
+            <ellipse cx="180" cy="130" rx="162" ry="114" fill="rgba(21, 128, 61, 0.14)" stroke="rgba(74, 222, 128, 0.4)" stroke-width="2" />
+            <ellipse cx="180" cy="130" rx="96" ry="66" fill="none" stroke="rgba(255, 255, 255, 0.18)" stroke-dasharray="5 5" />
+            <rect x="167" y="96" width="26" height="68" rx="3" fill="rgba(251, 191, 36, 0.25)" stroke="#fbbf24" stroke-width="1.5" />
+            <line x1="162" y1="104" x2="198" y2="104" stroke="#f8fafc" stroke-width="1.5" />
+            <line x1="162" y1="156" x2="198" y2="156" stroke="#f8fafc" stroke-width="1.5" />
+            <circle cx="180" cy="100" r="3" fill="#ef4444" />
+            <circle cx="180" cy="160" r="3" fill="#ef4444" />
+            <text x="180" y="28" fill="#94a3b8" font-size="10" font-family="Chakra Petch, sans-serif" text-anchor="middle">BOUNDARY ROPE (65M – 85M)</text>
+            <text x="180" y="85" fill="#fbbf24" font-size="9.5" font-family="Chakra Petch, sans-serif" text-anchor="middle">22-YARD PITCH (20.12M)</text>
+            <text x="180" y="212" fill="#38bdf8" font-size="9.5" font-family="Chakra Petch, sans-serif" text-anchor="middle">30-YARD POWERPLAY CIRCLE</text>
+          </svg>
         </div>
+      </header>
+
+      <!-- Interactive Chapter Jump Bar -->
+      <nav class="chapter-nav" aria-label="Article Chapters">
+        <a href="#chapter-origins">I. Origins &amp; Evolution</a>
+        <a href="#chapter-mechanics">II. Field, Pitch &amp; Rules</a>
+        <a href="#chapter-formats">III. The Three Formats</a>
+        <a href="#chapter-craft">IV. Batting, Bowling &amp; Fielding</a>
+        <a href="#chapter-icc">V. ICC World Championships</a>
+        <a href="#chapter-modern">VI. Modern Analytics &amp; Future</a>
+      </nav>
+
+      <!-- Key Telemetry Strip -->
+      <div class="stat-banner-strip">
+        <div class="banner-metric"><strong>22 Yards</strong><span>Length of the Pitch</span></div>
+        <div class="banner-metric"><strong>11 Players</strong><span>Per International Side</span></div>
+        <div class="banner-metric"><strong>3 Formats</strong><span>Test, ODI &amp; T20I</span></div>
+        <div class="banner-metric"><strong>1877</strong><span>First Official Test Match</span></div>
       </div>
 
-      <!-- Filter & Sort Matrix -->
-      <div class="filter-bar">
-        <div class="filter-group">
-          <label for="country-filter">Nation</label>
-          <select id="country-filter">
-            <option value="ALL">All Nations</option>
-            <option value="IND">India</option>
-            <option value="AUS">Australia</option>
-            <option value="ENG">England</option>
-            <option value="SA">South Africa</option>
-            <option value="WI">West Indies</option>
-            <option value="NZ">New Zealand</option>
-            <option value="PAK">Pakistan</option>
-            <option value="SL">Sri Lanka</option>
-            <option value="BAN">Bangladesh</option>
-            <option value="AFG">Afghanistan</option>
-          </select>
-        </div>
+      <!-- CHAPTER 1 -->
+      <section id="chapter-origins" class="chronicle-section">
+        <div class="section-tag">CHAPTER I</div>
+        <h3>Origins and Global Evolution</h3>
+        <p>
+          Cricket's earliest verifiable roots trace back to the sheep-grazed downlands of southeast England—specifically the Weald of Kent and Sussex—during the sixteenth century. What began as a rural pastime played by children using a curved wooden club to defend a tree stump or sheep-pen gate against a stone or wool ball steadily evolved into an organized adult sport by the seventeenth century. The earliest surviving written reference to the game appears in a 1597 court deposition in Guildford, Surrey, testifying that schoolboys had played "creckett" on a parcel of common land fifty years earlier. By the eighteenth century, aristocratic patrons and London social clubs had codified the Laws of Cricket, establishing the Hambledon Club in Hampshire as the cradle of early tactical innovation before the Marylebone Cricket Club (MCC) assumed guardianship of the Laws at Lord's in 1787.
+        </p>
+        <p>
+          As the British Empire expanded across maritime trade routes during the eighteenth and nineteenth centuries, cricket traveled aboard ships to North America, the Caribbean, India, Australia, New Zealand, and Southern Africa. Ironically, the very nations that absorbed the game under colonial administration soon transformed it into an instrument of national pride, cultural identity, and sporting resistance. In March 1877, Australia hosted England at the Melbourne Cricket Ground in what is recognized as the first official Test match—a contest Australia won by 45 runs. Five years later, in 1882, Australia's historic victory at The Oval prompted a satirical obituary in <em>The Sporting Times</em> declaring the death of English cricket, giving birth to The Ashes, sport's most enduring bilateral rivalry.
+        </p>
+        <p>
+          Over the twentieth century, the International Cricket Council (ICC)—founded in 1909 as the Imperial Cricket Conference—gradually expanded from an exclusive commonwealth club into a truly global governing body representing more than a hundred member nations. The admission of India, the West Indies, New Zealand, Pakistan, Sri Lanka, Zimbabwe, Bangladesh, Afghanistan, and Ireland into the Test-playing fraternity reshaped the balance of world cricket. Today, South Asia stands as the sport's demographic and economic heartbeat, with packed stadiums in Mumbai, Ahmedabad, Kolkata, Chennai, Lahore, and Colombo generating viewership figures that rival any sporting spectacle on Earth.
+        </p>
+      </section>
 
-        <div class="filter-group">
-          <label for="title-filter">ICC Title / Honor</label>
-          <select id="title-filter">
-            <option value="ALL">All Players &amp; Champions</option>
-            <option value="HOF">ICC Hall of Fame Inductees</option>
-            <option value="ODI World Cup">ODI World Cup Winner</option>
-            <option value="T20 World Cup">T20 World Cup Winner</option>
-            <option value="World Test Championship">WTC Champion</option>
-            <option value="Champions Trophy">Champions Trophy Winner</option>
-          </select>
-        </div>
+      <!-- CHAPTER 2 -->
+      <section id="chapter-mechanics" class="chronicle-section">
+        <div class="section-tag">CHAPTER II</div>
+        <h3>Anatomy of the Field, Pitch, and Laws</h3>
+        <p>
+          Unlike rectangular field sports such as football, basketball, or hockey, cricket is played on a vast oval or circular grass field whose exact boundary dimensions vary from stadium to stadium, typically stretching between 65 and 85 meters from the center. At the heart of this green amphitheater lies the pitch: a meticulously rolled, rectangular strip of clay turf measuring exactly 22 yards (20.12 meters) in length and 10 feet (3.05 meters) in width. At each end of the pitch stand three wooden stumps—off, middle, and leg—topped by two small wooden bails that together form a wicket standing 28 inches high and 9 inches wide.
+        </p>
+        <p>
+          Every match is contested between two teams of eleven players each, overseen by two on-field umpires, a third television umpire equipped with ball-tracking and ultra-edge audio technology, and a match referee. A coin toss before the start of play determines which captain chooses to bat or bowl first—a decision heavily influenced by soil moisture, grass cover, overhead cloud density, and forecast weather conditions. While the batting side sends two batters to the crease at any time (one on strike facing the bowler, the other at the non-striker's end), all eleven members of the fielding side take the turf simultaneously.
+        </p>
+        <p>
+          Play unfolds in discrete six-ball sequences known as overs, bowled alternately from opposite ends of the pitch by different bowlers. Runs are accumulated primarily in two ways: by the two batters physically running between the popping creases after striking the ball, or by hitting the ball across the boundary rope—scoring four runs if the ball touches the ground before crossing, and six runs if it clears the rope on the full. Meanwhile, the fielding side seeks to dismiss ten of the eleven batters (leaving one stranded "not out") through ten recognized modes of dismissal, led by Bowled, Caught, Leg Before Wicket (LBW), Run Out, and Stumped.
+        </p>
 
-        <div class="filter-group">
-          <label for="decade-filter">Era / Decade</label>
-          <select id="decade-filter">
-            <option value="ALL">All Eras</option>
-            <option value="1970s-80s">1970s – 1980s</option>
-            <option value="1990s">1990s</option>
-            <option value="2000s">2000s</option>
-            <option value="2010s">2010s</option>
-            <option value="2020s">2020s – Present</option>
-          </select>
+        <div class="info-cards-3">
+          <div class="mini-card">
+            <h4>The Red &amp; White Ball</h4>
+            <p>Test cricket uses a traditional stitched red (or pink for day-night Tests) leather ball designed to retain seam movement and reverse swing across 80 overs. Limited-overs cricket uses white balls for visibility under floodlights, swinging sharply early before softening.</p>
+          </div>
+          <div class="mini-card">
+            <h4>Pitch Deterioration</h4>
+            <p>A cricket pitch is a living surface. Green grass aids seam bowlers on Day 1; baked dry clay favors batters on Days 2 and 3; dusty, cracked surfaces create sharp turn and variable bounce for spin bowlers on Days 4 and 5.</p>
+          </div>
+          <div class="mini-card">
+            <h4>Decision Review System (DRS)</h4>
+            <p>Modern international cricket integrates Hawk-Eye predictive ball tracking, Snickometer acoustic edge detection, and infrared thermal imaging, allowing captains to challenge on-field umpire calls in real time.</p>
+          </div>
         </div>
+      </section>
 
-        <div class="filter-group">
-          <label for="role-filter">Role</label>
-          <select id="role-filter">
-            <option value="ALL">All Roles</option>
-            <option value="Batter">Batter</option>
-            <option value="All-Rounder">All-Rounder</option>
-            <option value="Bowler">Bowler</option>
-            <option value="Wicketkeeper">Wicketkeeper</option>
-          </select>
-        </div>
+      <!-- CHAPTER 3 -->
+      <section id="chapter-formats" class="chronicle-section">
+        <div class="section-tag">CHAPTER III</div>
+        <h3>The Three Pillars of International Cricket</h3>
+        <p>
+          No other major global sport requires its elite athletes to master three structurally distinct formats that demand radically different physical conditioning, temperament, and tactical geometry. While the fundamental mechanics of bat versus ball remain constant, the constraints of time and overs transform the strategic DNA of each format.
+        </p>
 
-        <div class="filter-group">
-          <label for="sort-select">Sort By</label>
-          <select id="sort-select">
-            <option value="titles">Most ICC Titles</option>
-            <option value="runs">Most Format Runs</option>
-            <option value="wickets">Most Format Wickets</option>
-            <option value="avg">Highest Format Average</option>
-            <option value="az">Alphabetical (A–Z)</option>
-          </select>
+        <div class="format-comparison-table">
+          <div class="fmt-col">
+            <span class="fmt-pill">FORMAT 01</span>
+            <h4>Test Cricket (5 Days)</h4>
+            <p>
+              The ultimate examination of skill, endurance, and mental resilience. Played in traditional white flannels with a red ball over five consecutive days (up to 90 overs per day), each team bats twice in an unlimited-overs format. With no fielding restrictions and no limit on how many overs a single bowler can send down, Test cricket rewards patience, defensive technique, tactical declarations, and the ability to survive hostile spells on deteriorating pitches.
+            </p>
+          </div>
+          <div class="fmt-col">
+            <span class="fmt-pill">FORMAT 02</span>
+            <h4>One Day Internationals (50 Overs)</h4>
+            <p>
+              Introduced in 1971 to give spectators a decisive result within a single day, ODIs cap each side at a single innings of 50 overs (300 legal deliveries). Played in colored national kits with two new white balls—one from each end—ODI cricket is structured around three distinct tactical phases: the aggressive 10-over Powerplay, the middle-over consolidation against spin, and the high-velocity death-overs surge.
+            </p>
+          </div>
+          <div class="fmt-col">
+            <span class="fmt-pill">FORMAT 03</span>
+            <h4>Twenty20 Internationals (20 Overs)</h4>
+            <p>
+              Launched internationally in 2005, T20I compressed cricket into an explosive three-hour prime-time spectacle of 20 overs per side. Every delivery carries immediate consequence. T20I revolutionized batting biomechanics—birthing switch-hits, reverse scoops, and 360-degree strokeplay—while forcing bowlers to develop pinpoint wide yorkers, knuckleballs, and deceptive variations in pace.
+            </p>
+          </div>
         </div>
+      </section>
 
-        <div class="filter-group">
-          <label for="search-input">Search</label>
-          <input type="text" id="search-input" placeholder="Name, jersey, nickname..." />
+      <!-- CHAPTER 4 -->
+      <section id="chapter-craft" class="chronicle-section">
+        <div class="section-tag">CHAPTER IV</div>
+        <h3>The Art of Batting, Bowling, and Fielding</h3>
+        <p>
+          At its core, every delivery in cricket is an intimate psychological duel between the bowler releasing the ball and the batter waiting 22 yards away with less than half a second to react. A fast bowler propelling a 156-gram leather ball at 145 to 155 kilometers per hour leaves the batter roughly 0.42 seconds to judge line, length, bounce, and lateral movement, transfer body weight, and execute a balanced shot.
+        </p>
+        <p>
+          <strong>Batting Craft:</strong> Great batters combine classical footwork with spatial geometry. On the front foot, crisp cover drives, straight drives, and on-drives pierce gaps in the infield with minimal risk; on the back foot, square cuts and pull shots punish short-pitched deliveries. Yet numbers alone never tell the whole story—true batting greatness is measured by adaptability across continents: mastering swinging conditions in England, steep bounce in Australia and South Africa, and turning tracks across India and Sri Lanka.
+        </p>
+        <p>
+          <strong>Bowling Craft:</strong> Bowlers divide broadly into two artistic schools: pace and spin. Seam and swing bowlers manipulate the raised primary seam of the leather ball and polish one side to create aerodynamic pressure differentials—curving the ball late in the air (conventional and reverse swing) or deviating it sharply off the pitch. Spin bowlers, divided into finger-spinners (off-spin and left-arm orthodox) and wrist-spinners (leg-spin and left-arm unorthodox), impart rapid revolutions on the ball to make it drift in the air, dip sharply before bouncing, and turn viciously off the surface.
+        </p>
+        <p>
+          <strong>Fielding and Wicketkeeping:</strong> Once treated as a passive interval between batting turns, modern fielding has become an athletic weapon. Slip catchers standing inches apart behind the batter rely on split-second peripheral reflexes to snare edges traveling at over 120 km/h, while boundary riders routinely leap over the rope to parry sixes back into play. Anchoring the entire fielding unit is the wicketkeeper—squatting behind the stumps for hundreds of overs, standing up to the wickets for spinners, and executing lightning-fast stumpings in fractions of a second.
+        </p>
+      </section>
+
+      <!-- CHAPTER 5 -->
+      <section id="chapter-icc" class="chronicle-section">
+        <div class="section-tag">CHAPTER V</div>
+        <h3>ICC World Championships and Modern Dominance</h3>
+        <p>
+          While bilateral tours form the year-round calendar of international cricket, a player's legacy is immortalized on the global stage of International Cricket Council (ICC) tournaments. Across four pinnacle events—the <strong>ICC Men's Cricket World Cup</strong> (ODI, established 1975), the <strong>ICC Champions Trophy</strong> (established 1998), the <strong>ICC Men's T20 World Cup</strong> (established 2007), and the <strong>ICC World Test Championship</strong> (established 2019)—nations battle for cricketing supremacy.
+        </p>
+        <p>
+          Historical eras have frequently been defined by dynastic dominance. Clive Lloyd's West Indies ruled the late 1970s and early 1980s with an unmatched four-pronged fast-bowling battery, claiming the first two ODI World Cups in 1975 and 1979 before Kapil Dev's India stunned the cricketing world at Lord's in 1983. Between 1999 and 2007, Australia assembled one of the greatest sporting dynasties in history under Steve Waugh and Ricky Ponting, capturing three consecutive ODI World Cups alongside back-to-back Champions Trophy crowns.
+        </p>
+        <p>
+          In the modern era, white-ball and multi-format supremacy has reached historic heights. Following India's 2007 T20 World Cup and 2011 ODI World Cup triumphs under MS Dhoni, a new generation powered India to an extraordinary white-ball treble: winning the 2024 T20 World Cup in Barbados, capturing the 2025 ICC Champions Trophy in Dubai, and successfully defending their T20 crown on home soil at the 2026 T20 World Cup in Ahmedabad to become the first three-time T20 World Champions. Meanwhile, the World Test Championship has elevated five-day cricket with high-stakes finals at Lord's and Southampton, crowned by New Zealand (2021), Australia (2023), and South Africa (2025), who ended a 27-year ICC trophy wait under Temba Bavuma.
+        </p>
+      </section>
+
+      <!-- CHAPTER 6 -->
+      <section id="chapter-modern" class="chronicle-section">
+        <div class="section-tag">CHAPTER VI</div>
+        <h3>Data Analytics, Biomechanics, and the Road Ahead</h3>
+        <p>
+          Twenty-first-century cricket operates at the intersection of athletic instinct and precision data science. Team analysts now model match-ups down to release-point heights, seam angles, true-bounce percentages, and pitch-map heat zones. Batters train with bowling machines capable of replicating any international bowler's exact swing trajectory, while sports scientists monitor workload telemetry to protect multi-format pace bowlers across grueling twelve-month calendars.
+        </p>
+        <p>
+          At the same time, cricket's geographic footprint continues to expand rapidly. With 20-team ICC T20 World Cups showcasing competitive breakthroughs from the United States, Afghanistan, Nepal, Scotland, and Italy, and cricket returning to the Olympic Games program in Los Angeles in 2028 after a 128-year absence, the sport is entering its most inclusive global chapter yet.
+        </p>
+
+        <div class="end-chronicle-cta">
+          <div>
+            <h4>Ready to Explore the Legends Who Defined the Game?</h4>
+            <p>Inspect international Test, ODI, and T20I stats, ICC trophy cabinets, 5-axis radar charts, and build your All-Time Dream XI.</p>
+          </div>
+          <button class="primary-btn go-to-archive-btn">Launch Players &amp; Legends Archive &rarr;</button>
         </div>
+      </section>
+    </article>
+
+    <!-- =========================================================
+         PAGE 2: PLAYERS, LEGENDS, DREAM XI, LEADERBOARDS & H2H
+         ========================================================= -->
+    <div id="page-archive" class="page-container">
+      <!-- Sub-Navigation Bar for Page 2 -->
+      <div class="archive-subbar">
+        <button class="secondary-btn back-to-chronicle-btn">&larr; About Cricket</button>
+        <nav class="main-nav" aria-label="Archive Tools">
+          <button class="nav-btn active" data-view="players">Roster</button>
+          <button class="nav-btn" data-view="dreamxi">Dream XI</button>
+          <button class="nav-btn" data-view="leaderboards">Leaderboards</button>
+          <button class="nav-btn" data-view="trophies">ICC Finals</button>
+          <button class="nav-btn" data-view="compare">H2H</button>
+        </nav>
       </div>
 
-      <!-- A-Z Quick Jump Strip -->
-      <div class="alphabet-bar" id="alphabet-bar" aria-label="Filter by starting letter"></div>
-
-      <div class="roster-meta">
-        <span id="roster-count">Loading archive...</span>
-      </div>
-
-      <div id="players-grid" class="players-grid"></div>
-
-      <div class="load-more-wrap">
-        <button id="load-more-btn" class="load-more-btn" style="display:none;">Load More Players</button>
-      </div>
-    </section>
-
-    <!-- VIEW 2: DREAM XI BUILDER -->
-    <section id="view-dreamxi" class="view-section">
-      <div class="hero-banner">
-        <div>
-          <p class="eyebrow">ALL-TIME INTERNATIONAL SQUAD</p>
-          <h2>Build Your Dream Playing XI</h2>
+      <!-- VIEW 1: PLAYERS ROSTER -->
+      <section id="view-players" class="view-section active">
+        <div class="hero-banner">
+          <div>
+            <p class="eyebrow">INTERNATIONAL CRICKET ENCYCLOPEDIA</p>
+            <h2>World Champions &amp; Hall of Famers</h2>
+          </div>
+          <div class="format-switcher" role="group" aria-label="International Format">
+            <button class="fmt-btn active" data-format="odi">ODI</button>
+            <button class="fmt-btn" data-format="test">TEST</button>
+            <button class="fmt-btn" data-format="t20i">T20I</button>
+          </div>
         </div>
-        <div class="dream-actions">
-          <button id="clear-xi-btn" class="secondary-btn">Reset XI</button>
-          <button id="copy-xi-btn" class="primary-btn">Copy Team Sheet</button>
-        </div>
-      </div>
 
-      <div class="dream-layout">
-        <div class="dream-slots" id="dream-slots"></div>
-        <aside class="dream-telemetry" id="dream-telemetry"></aside>
-      </div>
-    </section>
+        <!-- Filter & Sort Matrix -->
+        <div class="filter-bar">
+          <div class="filter-group">
+            <label for="country-filter">Nation</label>
+            <select id="country-filter">
+              <option value="ALL">All Nations</option>
+              <option value="IND">India</option>
+              <option value="AUS">Australia</option>
+              <option value="ENG">England</option>
+              <option value="SA">South Africa</option>
+              <option value="WI">West Indies</option>
+              <option value="NZ">New Zealand</option>
+              <option value="PAK">Pakistan</option>
+              <option value="SL">Sri Lanka</option>
+              <option value="BAN">Bangladesh</option>
+              <option value="AFG">Afghanistan</option>
+            </select>
+          </div>
 
-    <!-- VIEW 3: MILESTONE LEADERBOARDS -->
-    <section id="view-leaderboards" class="view-section">
-      <div class="hero-banner">
-        <div>
-          <p class="eyebrow">ARCHIVE TELEMETRY RANKINGS</p>
-          <h2>All-Time Milestone Leaderboards</h2>
-        </div>
-        <div class="format-switcher" role="group" aria-label="Leaderboard Format">
-          <button class="lb-fmt-btn active" data-format="odi">ODI</button>
-          <button class="lb-fmt-btn" data-format="test">TEST</button>
-          <button class="lb-fmt-btn" data-format="t20i">T20I</button>
-        </div>
-      </div>
+          <div class="filter-group">
+            <label for="title-filter">ICC Title / Honor</label>
+            <select id="title-filter">
+              <option value="ALL">All Players &amp; Champions</option>
+              <option value="HOF">ICC Hall of Fame Inductees</option>
+              <option value="ODI World Cup">ODI World Cup Winner</option>
+              <option value="T20 World Cup">T20 World Cup Winner</option>
+              <option value="World Test Championship">WTC Champion</option>
+              <option value="Champions Trophy">Champions Trophy Winner</option>
+            </select>
+          </div>
 
-      <div id="leaderboards-grid" class="leaderboards-grid"></div>
-    </section>
+          <div class="filter-group">
+            <label for="decade-filter">Era / Decade</label>
+            <select id="decade-filter">
+              <option value="ALL">All Eras</option>
+              <option value="1970s-80s">1970s – 1980s</option>
+              <option value="1990s">1990s</option>
+              <option value="2000s">2000s</option>
+              <option value="2010s">2010s</option>
+              <option value="2020s">2020s – Present</option>
+            </select>
+          </div>
 
-    <!-- VIEW 4: ICC ROLL OF HONOR -->
-    <section id="view-trophies" class="view-section">
-      <div class="hero-banner">
-        <div>
-          <p class="eyebrow">GLOBAL TOURNAMENT ARCHIVE</p>
-          <h2>ICC Major Title Winners</h2>
-        </div>
-        <div class="trophy-tabs" role="group" aria-label="Tournament Filter">
-          <button class="trophy-tab active" data-trophy="ALL">All Finals</button>
-          <button class="trophy-tab" data-trophy="ODI World Cup">ODI World Cup</button>
-          <button class="trophy-tab" data-trophy="T20 World Cup">T20 World Cup</button>
-          <button class="trophy-tab" data-trophy="World Test Championship">WTC</button>
-          <button class="trophy-tab" data-trophy="Champions Trophy">Champions Trophy</button>
-        </div>
-      </div>
+          <div class="filter-group">
+            <label for="role-filter">Role</label>
+            <select id="role-filter">
+              <option value="ALL">All Roles</option>
+              <option value="Batter">Batter</option>
+              <option value="All-Rounder">All-Rounder</option>
+              <option value="Bowler">Bowler</option>
+              <option value="Wicketkeeper">Wicketkeeper</option>
+            </select>
+          </div>
 
-      <div id="trophies-grid" class="trophies-grid"></div>
-    </section>
+          <div class="filter-group">
+            <label for="sort-select">Sort By</label>
+            <select id="sort-select">
+              <option value="titles">Most ICC Titles</option>
+              <option value="runs">Most Format Runs</option>
+              <option value="wickets">Most Format Wickets</option>
+              <option value="avg">Highest Format Average</option>
+              <option value="az">Alphabetical (A–Z)</option>
+            </select>
+          </div>
 
-    <!-- VIEW 5: HEAD-TO-HEAD COMPARE -->
-    <section id="view-compare" class="view-section">
-      <div class="hero-banner">
-        <div>
-          <p class="eyebrow">TELEMETRY &amp; SILVERWARE DIFF</p>
-          <h2>Head-to-Head International Arena</h2>
+          <div class="filter-group">
+            <label for="search-input">Search</label>
+            <input type="text" id="search-input" placeholder="Name, jersey, nickname..." />
+          </div>
         </div>
-        <div class="format-switcher" role="group" aria-label="Compare Format">
-          <button class="cmp-fmt-btn active" data-format="odi">ODI</button>
-          <button class="cmp-fmt-btn" data-format="test">TEST</button>
-          <button class="cmp-fmt-btn" data-format="t20i">T20I</button>
-        </div>
-      </div>
 
-      <div class="compare-selectors">
-        <div class="selector-box">
-          <label for="compare-p1">Contender 1</label>
-          <select id="compare-p1"></select>
-        </div>
-        <div class="vs-badge">VS</div>
-        <div class="selector-box">
-          <label for="compare-p2">Contender 2</label>
-          <select id="compare-p2"></select>
-        </div>
-      </div>
+        <!-- A-Z Quick Jump Strip -->
+        <div class="alphabet-bar" id="alphabet-bar" aria-label="Filter by starting letter"></div>
 
-      <div id="compare-arena" class="compare-arena"></div>
-    </section>
+        <div class="roster-meta">
+          <span id="roster-count">Loading archive...</span>
+        </div>
+
+        <div id="players-grid" class="players-grid"></div>
+
+        <div class="load-more-wrap">
+          <button id="load-more-btn" class="load-more-btn" style="display:none;">Load More Players</button>
+        </div>
+      </section>
+
+      <!-- VIEW 2: DREAM XI BUILDER -->
+      <section id="view-dreamxi" class="view-section">
+        <div class="hero-banner">
+          <div>
+            <p class="eyebrow">ALL-TIME INTERNATIONAL SQUAD</p>
+            <h2>Build Your Dream Playing XI</h2>
+          </div>
+          <div class="dream-actions">
+            <button id="clear-xi-btn" class="secondary-btn">Reset XI</button>
+            <button id="copy-xi-btn" class="primary-btn">Copy Team Sheet</button>
+          </div>
+        </div>
+
+        <div class="dream-layout">
+          <div class="dream-slots" id="dream-slots"></div>
+          <aside class="dream-telemetry" id="dream-telemetry"></aside>
+        </div>
+      </section>
+
+      <!-- VIEW 3: MILESTONE LEADERBOARDS -->
+      <section id="view-leaderboards" class="view-section">
+        <div class="hero-banner">
+          <div>
+            <p class="eyebrow">ARCHIVE TELEMETRY RANKINGS</p>
+            <h2>All-Time Milestone Leaderboards</h2>
+          </div>
+          <div class="format-switcher" role="group" aria-label="Leaderboard Format">
+            <button class="lb-fmt-btn active" data-format="odi">ODI</button>
+            <button class="lb-fmt-btn" data-format="test">TEST</button>
+            <button class="lb-fmt-btn" data-format="t20i">T20I</button>
+          </div>
+        </div>
+
+        <div id="leaderboards-grid" class="leaderboards-grid"></div>
+      </section>
+
+      <!-- VIEW 4: ICC ROLL OF HONOR -->
+      <section id="view-trophies" class="view-section">
+        <div class="hero-banner">
+          <div>
+            <p class="eyebrow">GLOBAL TOURNAMENT ARCHIVE</p>
+            <h2>ICC Major Title Winners</h2>
+          </div>
+          <div class="trophy-tabs" role="group" aria-label="Tournament Filter">
+            <button class="trophy-tab active" data-trophy="ALL">All Finals</button>
+            <button class="trophy-tab" data-trophy="ODI World Cup">ODI World Cup</button>
+            <button class="trophy-tab" data-trophy="T20 World Cup">T20 World Cup</button>
+            <button class="trophy-tab" data-trophy="World Test Championship">WTC</button>
+            <button class="trophy-tab" data-trophy="Champions Trophy">Champions Trophy</button>
+          </div>
+        </div>
+
+        <div id="trophies-grid" class="trophies-grid"></div>
+      </section>
+
+      <!-- VIEW 5: HEAD-TO-HEAD COMPARE -->
+      <section id="view-compare" class="view-section">
+        <div class="hero-banner">
+          <div>
+            <p class="eyebrow">TELEMETRY &amp; SILVERWARE DIFF</p>
+            <h2>Head-to-Head International Arena</h2>
+          </div>
+          <div class="format-switcher" role="group" aria-label="Compare Format">
+            <button class="cmp-fmt-btn active" data-format="odi">ODI</button>
+            <button class="cmp-fmt-btn" data-format="test">TEST</button>
+            <button class="cmp-fmt-btn" data-format="t20i">T20I</button>
+          </div>
+        </div>
+
+        <div class="compare-selectors">
+          <div class="selector-box">
+            <label for="compare-p1">Contender 1</label>
+            <select id="compare-p1"></select>
+          </div>
+          <div class="vs-badge">VS</div>
+          <div class="selector-box">
+            <label for="compare-p2">Contender 2</label>
+            <select id="compare-p2"></select>
+          </div>
+        </div>
+
+        <div id="compare-arena" class="compare-arena"></div>
+      </section>
+    </div>
   </main>
 
   <!-- Player Dossier Modal -->
