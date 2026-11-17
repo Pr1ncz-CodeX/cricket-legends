@@ -11,12 +11,14 @@
   <link rel="stylesheet" href="css/layout.css" />
 </head>
 <body>
+  <!-- Dynamic National Theme Ambient Shader Background -->
   <div class="ambient-bg" aria-hidden="true">
     <div class="ambient-orb orb-1"></div>
     <div class="ambient-orb orb-2"></div>
     <div class="grid-overlay"></div>
   </div>
 
+  <!-- Top Navigation Bar -->
   <header class="topbar">
     <div class="brand">
       <span class="brand-badge">ICC ARCHIVE</span>
@@ -40,6 +42,13 @@
   </header>
 
   <main class="container">
+    <!-- Live Broadcast Commentary HUD -->
+    <div class="broadcast-hud" role="status" aria-live="polite">
+      <span class="hud-live-dot">LIVE BROADCAST</span>
+      <div id="hud-ticker" class="hud-ticker-text">Initializing International Cricket Telemetry...</div>
+      <button id="voice-toggle" class="voice-toggle-btn" title="Toggle Announcer Voice">🔇 Voice: OFF</button>
+    </div>
+
     <!-- VIEW 1: PLAYERS ROSTER -->
     <section id="view-players" class="view-section active">
       <div class="hero-banner">
@@ -233,6 +242,7 @@
   </div>
 
   <script src="js/config.js"></script>
+  <script src="js/fx.js"></script>
   <script src="js/ui.js"></script>
   <script src="js/app.js"></script>
 </body>

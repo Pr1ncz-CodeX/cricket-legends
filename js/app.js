@@ -66,7 +66,10 @@ function updateCompareView() {
   const id2 = document.getElementById("compare-p2").value;
   const p1 = ALL_PLAYERS.find(p => p.id === id1) || ALL_PLAYERS[0];
   const p2 = ALL_PLAYERS.find(p => p.id === id2) || ALL_PLAYERS[1];
-  if (p1 && p2) UI.renderComparison(p1, p2, state.compareFormat);
+  if (p1 && p2) {
+    UI.renderComparison(p1, p2, state.compareFormat);
+    FX.speakBroadcast(`Comparing ${p1.name} (${p1.iccTitles.length} ICC Titles) vs ${p2.name} (${p2.iccTitles.length} ICC Titles) in ${state.compareFormat.toUpperCase()} cricket.`);
+  }
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -74,7 +77,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const res = await fetch("data/players.json");
     ALL_PLAYERS = await res.json();
   } catch (err) {
-    document.getElementById("roster-count").textContent = "Failed to load data/players.json. Run via local server or Vercel.";
+    document.getElementById("roster-count").textContent = "Failed to load data/players.json. Run via VS Code Live Server or Vercel.";
     return;
   }
 
@@ -86,13 +89,39 @@ document.addEventListener("DOMContentLoaded", async () => {
   updateTrophiesView();
   updateCompareView();
 
+  // Initialize Morphological 3D Cards & Broadcast Welcome
+  FX.bindMagneticCards();
+  FX.speakBroadcast(`Welcome to the ICC Legends Archive. ${ALL_PLAYERS.length} international icons loaded and ready for telemetry.`);
+
+  // Voice Commentary Toggle
+  document.getElementById("voice-toggle").addEventListener("click", e => {
+    FX.voiceEnabled = !FX.voiceEnabled;
+    e.target.classList.toggle("active", FX.voiceEnabled);
+    e.target.textContent = FX.voiceEnabled ? "🔊 Voice: ON" : "🔇 Voice: OFF";
+    if (FX.voiceEnabled) {
+      FX.speakBroadcast("Broadcast announcer voice activated. Click any player card for live commentary.", true);
+    } else if ("speechSynthesis" in window) {
+      window.speechSynthesis.cancel();
+    }
+  });
+
   // Navigation
   document.querySelectorAll(".nav-btn").forEach(btn => {
     btn.addEventListener("click", () => {
       document.querySelectorAll(".nav-btn").forEach(b => b.classList.remove("active"));
       btn.classList.add("active");
+      const view = btn.dataset.view;
       document.querySelectorAll(".view-section").forEach(sec => sec.classList.remove("active"));
-      document.getElementById(`view-${btn.dataset.view}`).classList.add("active");
+      document.getElementById(`view-${view}`).classList.add("active");
+
+      const viewMessages = {
+        players: "Browsing International Legends Roster. Click any player to open their holographic dossier.",
+        dreamxi: "Stadium Tactical Map online. Assemble your All-Time International Playing XI.",
+        leaderboards: "Viewing All-Time ICC Milestone Leaderboards.",
+        trophies: "Exploring the ICC Major Tournament Roll of Honor through 2026.",
+        compare: "Head-to-Head Arena active. Compare silverware and format averages side-by-side."
+      };
+      FX.speakBroadcast(viewMessages[view] || "View updated.");
     });
   });
 
@@ -103,6 +132,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       btn.classList.add("active");
       state.format = btn.dataset.format;
       updatePlayersView(false);
+      FX.speakBroadcast(`Telemetry switched to ${state.format.toUpperCase()} international statistics.`);
     });
   });
 
@@ -129,6 +159,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     document.getElementById(id).addEventListener("change", e => {
       const key = id.replace("-filter", "").replace("-select", "");
       state[key] = e.target.value;
+      if (key === "country" && state.country !== "ALL") UI.applyNationalTheme(state.country);
       updatePlayersView(true);
     });
   });
@@ -159,11 +190,17 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (!sel) return;
     state.dreamXI[Number(sel.dataset.slot)] = sel.value;
     UI.renderDreamXI(ALL_PLAYERS, state.dreamXI);
+    const picked = ALL_PLAYERS.find(p => p.id === sel.value);
+    if (picked) {
+      UI.applyNationalTheme(picked.country);
+      FX.speakBroadcast(`${picked.name} drafted into slot #${Number(sel.dataset.slot) + 1} of your Dream XI.`, true);
+    }
   });
 
   document.getElementById("clear-xi-btn").addEventListener("click", () => {
     state.dreamXI = Array(11).fill("");
     UI.renderDreamXI(ALL_PLAYERS, state.dreamXI);
+    FX.speakBroadcast("Dream XI squad cleared. Ready for new selections.");
   });
 
   document.getElementById("copy-xi-btn").addEventListener("click", () => {
@@ -172,7 +209,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       return `${i + 1}. ${p ? `${p.name} (${p.country})` : "Empty"}`;
     });
     navigator.clipboard.writeText(`MY ALL-TIME INTERNATIONAL XI:\n${lines.join("\n")}`);
-    alert("Dream XI Team Sheet copied to clipboard!");
+    FX.speakBroadcast("All-Time International Dream XI copied to clipboard!", true);
   });
 
   // Trophies & Compare

@@ -83,7 +83,8 @@ const UI = {
       `;
     }).join("");
 
-    const chosen = selectedIds.map(id => players.find(p => p.id === id)).filter(Boolean);
+    const slotPlayers = selectedIds.map(id => players.find(p => p.id === id) || null);
+    const chosen = slotPlayers.filter(Boolean);
     const totalTrophies = chosen.reduce((sum, p) => sum + p.iccTitles.length, 0);
     const totalRuns = chosen.reduce((sum, p) => sum + p.stats.test.runs + p.stats.odi.runs + p.stats.t20i.runs, 0);
     const totalWickets = chosen.reduce((sum, p) => sum + p.stats.test.wickets + p.stats.odi.wickets + p.stats.t20i.wickets, 0);
@@ -96,7 +97,8 @@ const UI = {
     else if (bowlCount < 5) balanceMsg = "⚠️ Warning: Fewer than 5 bowling options in your XI.";
 
     telemetryContainer.innerHTML = `
-      <h3 style="font-family:var(--font-display); margin-bottom:0.8rem;">SQUAD TELEMETRY</h3>
+      ${FX.buildStadiumPitchSVG(slotPlayers)}
+      <h3 style="font-family:var(--font-display); margin-bottom:0.6rem;">SQUAD TELEMETRY</h3>
       <div class="telemetry-stat"><span>Players Selected</span><strong>${chosen.length} / 11</strong></div>
       <div class="telemetry-stat"><span>Combined ICC Trophies</span><strong style="color:var(--gold-trophy);">🏆 ${totalTrophies}</strong></div>
       <div class="telemetry-stat"><span>Combined Int'l Runs</span><strong>${totalRuns.toLocaleString()}</strong></div>
@@ -155,6 +157,8 @@ const UI = {
     const modal = document.getElementById("dossier-modal");
     const content = document.getElementById("dossier-content");
 
+    FX.speakBroadcast(`${player.name} — "${player.nickname}". ${player.signatureMoment}`, true);
+
     const trophiesHTML = player.iccTitles.length
       ? player.iccTitles.map(t => `<span class="trophy-pill">🏆 ${t.trophy} (${t.year})</span>`).join("")
       : `<span class="trophy-pill icon-only">All-Time International Icon</span>`;
@@ -186,9 +190,12 @@ const UI = {
       <p class="player-nickname" style="color:${theme.secondary}; font-size:1rem;">"${player.nickname}" • ${player.role}</p>
       <div class="trophy-strip" style="margin-top:0.75rem;">${trophiesHTML}</div>
       <div class="dossier-grid">${formats}</div>
-      <div class="signature-box">
-        <strong style="display:block; font-size:0.78rem; letter-spacing:0.08em; color:var(--gold-trophy); margin-bottom:0.25rem;">SIGNATURE INTERNATIONAL MOMENT</strong>
-        <span style="font-size:0.92rem;">${player.signatureMoment}</span>
+      <div class="dossier-bottom-split">
+        ${FX.buildRadarSVG(player)}
+        <div class="signature-box">
+          <strong style="display:block; font-size:0.78rem; letter-spacing:0.08em; color:var(--gold-trophy); margin-bottom:0.35rem;">SIGNATURE INTERNATIONAL MOMENT</strong>
+          <span style="font-size:0.92rem;">${player.signatureMoment}</span>
+        </div>
       </div>
     `;
 
@@ -200,6 +207,7 @@ const UI = {
     const modal = document.getElementById("dossier-modal");
     modal.classList.remove("open");
     modal.setAttribute("aria-hidden", "true");
+    if ("speechSynthesis" in window) window.speechSynthesis.cancel();
   },
 
   populateCompareSelects(players) {
