@@ -1,0 +1,478 @@
+[
+  {
+    "id": "kohli",
+    "name": "Virat Kohli",
+    "jersey": "18",
+    "country": "IND",
+    "decade": "2010s",
+    "role": "Batter",
+    "nickname": "The Chase Master",
+    "hallOfFame": null,
+    "iccTitles": [
+      { "trophy": "ODI World Cup", "year": "2011" },
+      { "trophy": "Champions Trophy", "year": "2013" },
+      { "trophy": "T20 World Cup", "year": "2024" },
+      { "trophy": "Champions Trophy", "year": "2025" }
+    ],
+    "stats": {
+      "test": { "matches": 123, "runs": 9230, "wickets": 0, "avg": 46.85, "sr": 55.5, "milestones": "30 Hundreds" },
+      "odi": { "matches": 302, "runs": 14181, "wickets": 5, "avg": 57.88, "sr": 93.4, "milestones": "51 Hundreds" },
+      "t20i": { "matches": 125, "runs": 4188, "wickets": 4, "avg": 48.69, "sr": 137.0, "milestones": "38 Fifties" }
+    },
+    "signatureMoment": "82* off 53 balls vs Pakistan at the MCG (2022 T20 World Cup) & 76 in the 2024 T20 World Cup Final."
+  },
+  {
+    "id": "dhoni",
+    "name": "MS Dhoni",
+    "jersey": "07",
+    "country": "IND",
+    "decade": "2010s",
+    "role": "Wicketkeeper",
+    "nickname": "Captain Cool",
+    "hallOfFame": 2025,
+    "iccTitles": [
+      { "trophy": "T20 World Cup", "year": "2007 (C)" },
+      { "trophy": "ODI World Cup", "year": "2011 (C)" },
+      { "trophy": "Champions Trophy", "year": "2013 (C)" }
+    ],
+    "stats": {
+      "test": { "matches": 90, "runs": 4876, "wickets": 0, "avg": 38.09, "sr": 59.1, "milestones": "294 Dismissals" },
+      "odi": { "matches": 350, "runs": 10773, "wickets": 1, "avg": 50.57, "sr": 87.5, "milestones": "444 Dismissals" },
+      "t20i": { "matches": 98, "runs": 1617, "wickets": 0, "avg": 37.60, "sr": 126.1, "milestones": "91 Dismissals" }
+    },
+    "signatureMoment": "Unbeaten 91* sealed with a six at Wankhede to win the 2011 ODI World Cup Final."
+  },
+  {
+    "id": "rohit",
+    "name": "Rohit Sharma",
+    "jersey": "45",
+    "country": "IND",
+    "decade": "2010s",
+    "role": "Batter",
+    "nickname": "The Hitman",
+    "hallOfFame": null,
+    "iccTitles": [
+      { "trophy": "T20 World Cup", "year": "2007" },
+      { "trophy": "Champions Trophy", "year": "2013" },
+      { "trophy": "T20 World Cup", "year": "2024 (C)" },
+      { "trophy": "Champions Trophy", "year": "2025 (C)" }
+    ],
+    "stats": {
+      "test": { "matches": 67, "runs": 4301, "wickets": 2, "avg": 40.57, "sr": 57.0, "milestones": "12 Hundreds" },
+      "odi": { "matches": 273, "runs": 11168, "wickets": 9, "avg": 48.76, "sr": 92.8, "milestones": "3 Double Hundreds" },
+      "t20i": { "matches": 159, "runs": 4231, "wickets": 1, "avg": 32.05, "sr": 140.8, "milestones": "5 T20I Hundreds" }
+    },
+    "signatureMoment": "World-record 264 in ODIs vs Sri Lanka and 5 centuries in the 2019 ODI World Cup."
+  },
+  {
+    "id": "bumrah",
+    "name": "Jasprit Bumrah",
+    "jersey": "93",
+    "country": "IND",
+    "decade": "2020s",
+    "role": "Bowler",
+    "nickname": "Boom Boom",
+    "hallOfFame": null,
+    "iccTitles": [
+      { "trophy": "T20 World Cup", "year": "2024 (POTT)" },
+      { "trophy": "T20 World Cup", "year": "2026" }
+    ],
+    "stats": {
+      "test": { "matches": 45, "runs": 332, "wickets": 205, "avg": 19.40, "sr": 42.0, "milestones": "13 Five-Wicket Hauls" },
+      "odi": { "matches": 89, "runs": 91, "wickets": 149, "avg": 23.55, "sr": 30.7, "milestones": "Best: 6/19" },
+      "t20i": { "matches": 78, "runs": 8, "wickets": 99, "avg": 17.50, "sr": 17.1, "milestones": "Econ: 6.24" }
+    },
+    "signatureMoment": "2024 T20 World Cup Player of the Tournament (15 wickets at 4.17 economy)."
+  },
+  {
+    "id": "hardik",
+    "name": "Hardik Pandya",
+    "jersey": "33",
+    "country": "IND",
+    "decade": "2020s",
+    "role": "All-Rounder",
+    "nickname": "Kung Fu Pandya",
+    "hallOfFame": null,
+    "iccTitles": [
+      { "trophy": "T20 World Cup", "year": "2024" },
+      { "trophy": "Champions Trophy", "year": "2025" },
+      { "trophy": "T20 World Cup", "year": "2026" }
+    ],
+    "stats": {
+      "test": { "matches": 11, "runs": 532, "wickets": 17, "avg": 31.29, "sr": 73.8, "milestones": "5/28 at Trent Bridge" },
+      "odi": { "matches": 94, "runs": 1904, "wickets": 91, "avg": 32.82, "sr": 110.8, "milestones": "11 Fifties" },
+      "t20i": { "matches": 122, "runs": 1930, "wickets": 102, "avg": 27.97, "sr": 142.5, "milestones": "100+ Wickets & 1900+ Runs" }
+    },
+    "signatureMoment": "3/20 in the 2024 T20 World Cup Final defending 16 off the final over in Barbados."
+  },
+  {
+    "id": "tendulkar",
+    "name": "Sachin Tendulkar",
+    "jersey": "10",
+    "country": "IND",
+    "decade": "2000s",
+    "role": "Batter",
+    "nickname": "Master Blaster",
+    "hallOfFame": 2019,
+    "iccTitles": [
+      { "trophy": "Champions Trophy", "year": "2002" },
+      { "trophy": "ODI World Cup", "year": "2011" }
+    ],
+    "stats": {
+      "test": { "matches": 200, "runs": 15921, "wickets": 46, "avg": 53.78, "sr": 54.0, "milestones": "51 Test Hundreds" },
+      "odi": { "matches": 463, "runs": 18426, "wickets": 154, "avg": 44.83, "sr": 86.2, "milestones": "49 ODI Hundreds" },
+      "t20i": { "matches": 1, "runs": 10, "wickets": 1, "avg": 10.00, "sr": 83.3, "milestones": "100 International 100s" }
+    },
+    "signatureMoment": "First double-century in Men's ODI history (200* vs South Africa, 2010) & 100 international centuries."
+  },
+  {
+    "id": "ganguly",
+    "name": "Sourav Ganguly",
+    "jersey": "99",
+    "country": "IND",
+    "decade": "2000s",
+    "role": "Batter",
+    "nickname": "Dada / Prince of Kolkata",
+    "hallOfFame": 2026,
+    "iccTitles": [
+      { "trophy": "Champions Trophy", "year": "2002 (C)" }
+    ],
+    "stats": {
+      "test": { "matches": 113, "runs": 7212, "wickets": 32, "avg": 42.17, "sr": 51.2, "milestones": "16 Test Hundreds" },
+      "odi": { "matches": 311, "runs": 11363, "wickets": 100, "avg": 41.02, "sr": 73.7, "milestones": "22 ODI Hundreds" },
+      "t20i": { "matches": 0, "runs": 0, "wickets": 0, "avg": 0, "sr": 0, "milestones": "2003 WC Finalist Captain" }
+    },
+    "signatureMoment": "183 vs Sri Lanka at Taunton (1999 WC) and leading India to the 2002 Champions Trophy & 2003 WC Final."
+  },
+  {
+    "id": "kapil",
+    "name": "Kapil Dev",
+    "jersey": "09",
+    "country": "IND",
+    "decade": "1970s-80s",
+    "role": "All-Rounder",
+    "nickname": "Haryana Hurricane",
+    "hallOfFame": 2009,
+    "iccTitles": [
+      { "trophy": "ODI World Cup", "year": "1983 (C)" }
+    ],
+    "stats": {
+      "test": { "matches": 131, "runs": 5248, "wickets": 434, "avg": 31.05, "sr": 80.9, "milestones": "400+ Wickets & 5000+ Runs" },
+      "odi": { "matches": 225, "runs": 3783, "wickets": 253, "avg": 23.79, "sr": 95.0, "milestones": "175* vs Zimbabwe (1983)" },
+      "t20i": { "matches": 0, "runs": 0, "wickets": 0, "avg": 0, "sr": 0, "milestones": "1983 WC Winning Captain" }
+    },
+    "signatureMoment": "Unbeaten 175* at Tunbridge Wells rescuing India from 17/5 during the 1983 World Cup."
+  },
+  {
+    "id": "cummins",
+    "name": "Pat Cummins",
+    "jersey": "30",
+    "country": "AUS",
+    "decade": "2020s",
+    "role": "Bowler",
+    "nickname": "Captain Clutch",
+    "hallOfFame": null,
+    "iccTitles": [
+      { "trophy": "ODI World Cup", "year": "2015" },
+      { "trophy": "T20 World Cup", "year": "2021" },
+      { "trophy": "World Test Championship", "year": "2023 (C)" },
+      { "trophy": "ODI World Cup", "year": "2023 (C)" }
+    ],
+    "stats": {
+      "test": { "matches": 69, "runs": 1480, "wickets": 298, "avg": 22.40, "sr": 46.8, "milestones": "13 Five-Wicket Hauls" },
+      "odi": { "matches": 90, "runs": 540, "wickets": 143, "avg": 28.45, "sr": 32.1, "milestones": "2/34 in 2023 WC Final" },
+      "t20i": { "matches": 59, "runs": 165, "wickets": 68, "avg": 23.10, "sr": 18.5, "milestones": "2 Hat-tricks in 2024 T20WC" }
+    },
+    "signatureMoment": "Captained Australia to both the 2023 WTC Mace and 2023 ODI World Cup title in Ahmedabad."
+  },
+  {
+    "id": "ponting",
+    "name": "Ricky Ponting",
+    "jersey": "14",
+    "country": "AUS",
+    "decade": "2000s",
+    "role": "Batter",
+    "nickname": "Punter",
+    "hallOfFame": 2018,
+    "iccTitles": [
+      { "trophy": "ODI World Cup", "year": "1999" },
+      { "trophy": "ODI World Cup", "year": "2003 (C)" },
+      { "trophy": "Champions Trophy", "year": "2006 (C)" },
+      { "trophy": "ODI World Cup", "year": "2007 (C)" },
+      { "trophy": "Champions Trophy", "year": "2009 (C)" }
+    ],
+    "stats": {
+      "test": { "matches": 168, "runs": 13378, "wickets": 5, "avg": 51.85, "sr": 58.7, "milestones": "41 Test Hundreds" },
+      "odi": { "matches": 375, "runs": 13704, "wickets": 3, "avg": 42.03, "sr": 80.3, "milestones": "30 ODI Hundreds" },
+      "t20i": { "matches": 17, "runs": 401, "wickets": 0, "avg": 28.64, "sr": 132.8, "milestones": "98* vs NZ (2005)" }
+    },
+    "signatureMoment": "140* off 121 balls in the 2003 ODI World Cup Final in Johannesburg."
+  },
+  {
+    "id": "warne",
+    "name": "Shane Warne",
+    "jersey": "23",
+    "country": "AUS",
+    "decade": "1990s",
+    "role": "Bowler",
+    "nickname": "The King of Spin",
+    "hallOfFame": 2013,
+    "iccTitles": [
+      { "trophy": "ODI World Cup", "year": "1999 (POTM Final)" }
+    ],
+    "stats": {
+      "test": { "matches": 145, "runs": 3154, "wickets": 708, "avg": 25.41, "sr": 57.4, "milestones": "37 Five-Wicket Hauls" },
+      "odi": { "matches": 194, "runs": 1018, "wickets": 293, "avg": 25.73, "sr": 36.3, "milestones": "4/33 in 1999 WC Final" },
+      "t20i": { "matches": 0, "runs": 0, "wickets": 0, "avg": 0, "sr": 0, "milestones": "1,001 Int'l Wickets" }
+    },
+    "signatureMoment": "Ball of the Century to Mike Gatting (1993) & 4/33 in the 1999 World Cup Final at Lord's."
+  },
+  {
+    "id": "mcgrath",
+    "name": "Glenn McGrath",
+    "jersey": "11",
+    "country": "AUS",
+    "decade": "2000s",
+    "role": "Bowler",
+    "nickname": "Pigeon",
+    "hallOfFame": 2012,
+    "iccTitles": [
+      { "trophy": "ODI World Cup", "year": "1999" },
+      { "trophy": "ODI World Cup", "year": "2003" },
+      { "trophy": "Champions Trophy", "year": "2006" },
+      { "trophy": "ODI World Cup", "year": "2007 (POTT)" }
+    ],
+    "stats": {
+      "test": { "matches": 124, "runs": 641, "wickets": 563, "avg": 21.64, "sr": 51.9, "milestones": "29 Five-Wicket Hauls" },
+      "odi": { "matches": 250, "runs": 115, "wickets": 381, "avg": 22.02, "sr": 34.0, "milestones": "71 ODI WC Wickets" },
+      "t20i": { "matches": 2, "runs": 5, "wickets": 5, "avg": 15.80, "sr": 12.0, "milestones": "All-Time WC Wicket Leader" }
+    },
+    "signatureMoment": "7/15 vs Namibia in 2003 & record 71 career wickets in ODI World Cup history."
+  },
+  {
+    "id": "kallis",
+    "name": "Jacques Kallis",
+    "jersey": "03",
+    "country": "SA",
+    "decade": "2000s",
+    "role": "All-Rounder",
+    "nickname": "The Ultimate All-Rounder",
+    "hallOfFame": 2020,
+    "iccTitles": [
+      { "trophy": "Champions Trophy", "year": "1998 (POTT)" }
+    ],
+    "stats": {
+      "test": { "matches": 166, "runs": 13289, "wickets": 292, "avg": 55.37, "sr": 45.9, "milestones": "45 Hundreds & 292 Wickets" },
+      "odi": { "matches": 328, "runs": 11579, "wickets": 273, "avg": 44.36, "sr": 72.8, "milestones": "17 Hundreds & 273 Wickets" },
+      "t20i": { "matches": 25, "runs": 666, "wickets": 12, "avg": 35.05, "sr": 119.3, "milestones": "5 Fifties" }
+    },
+    "signatureMoment": "Only cricketer in history with 10,000+ runs and 250+ wickets in both Tests and ODIs."
+  },
+  {
+    "id": "abd",
+    "name": "AB de Villiers",
+    "jersey": "17",
+    "country": "SA",
+    "decade": "2010s",
+    "role": "Wicketkeeper",
+    "nickname": "Mr. 360",
+    "hallOfFame": 2024,
+    "iccTitles": [],
+    "stats": {
+      "test": { "matches": 114, "runs": 8765, "wickets": 2, "avg": 50.66, "sr": 54.5, "milestones": "22 Test Hundreds" },
+      "odi": { "matches": 228, "runs": 9577, "wickets": 7, "avg": 53.50, "sr": 101.1, "milestones": "Fastest ODI 100 (31 balls)" },
+      "t20i": { "matches": 78, "runs": 1672, "wickets": 0, "avg": 26.12, "sr": 135.1, "milestones": "10 Fifties" }
+    },
+    "signatureMoment": "149 off 44 balls vs West Indies in Johannesburg (2015), reaching 100 in 31 balls."
+  },
+  {
+    "id": "bavuma",
+    "name": "Temba Bavuma",
+    "jersey": "11",
+    "country": "SA",
+    "decade": "2020s",
+    "role": "Batter",
+    "nickname": "WTC Mace Winner",
+    "hallOfFame": null,
+    "iccTitles": [
+      { "trophy": "World Test Championship", "year": "2025 (C)" }
+    ],
+    "stats": {
+      "test": { "matches": 65, "runs": 3790, "wickets": 1, "avg": 38.67, "sr": 51.2, "milestones": "2025 WTC Winning Captain" },
+      "odi": { "matches": 52, "runs": 1940, "wickets": 0, "avg": 43.11, "sr": 88.9, "milestones": "5 ODI Hundreds" },
+      "t20i": { "matches": 36, "runs": 670, "wickets": 0, "avg": 21.61, "sr": 118.1, "milestones": "1 Fifty" }
+    },
+    "signatureMoment": "Captained South Africa to end a 27-year ICC trophy drought in the 2025 WTC Final at Lord's."
+  },
+  {
+    "id": "pietersen",
+    "name": "Kevin Pietersen",
+    "jersey": "24",
+    "country": "ENG",
+    "decade": "2000s",
+    "role": "Batter",
+    "nickname": "KP",
+    "hallOfFame": 2026,
+    "iccTitles": [
+      { "trophy": "T20 World Cup", "year": "2010 (POTT)" }
+    ],
+    "stats": {
+      "test": { "matches": 104, "runs": 8181, "wickets": 10, "avg": 47.28, "sr": 61.7, "milestones": "23 Test Hundreds" },
+      "odi": { "matches": 136, "runs": 4440, "wickets": 7, "avg": 40.73, "sr": 86.5, "milestones": "9 ODI Hundreds" },
+      "t20i": { "matches": 37, "runs": 1176, "wickets": 1, "avg": 37.93, "sr": 141.5, "milestones": "2010 T20 WC POTT" }
+    },
+    "signatureMoment": "158 at The Oval in 2005 to reclaim the Ashes & Player of the Tournament in England's 2010 T20 WC win."
+  },
+  {
+    "id": "stokes",
+    "name": "Ben Stokes",
+    "jersey": "55",
+    "country": "ENG",
+    "decade": "2020s",
+    "role": "All-Rounder",
+    "nickname": "Miracle Man",
+    "hallOfFame": null,
+    "iccTitles": [
+      { "trophy": "ODI World Cup", "year": "2019 (POTM Final)" },
+      { "trophy": "T20 World Cup", "year": "2022" }
+    ],
+    "stats": {
+      "test": { "matches": 112, "runs": 6780, "wickets": 215, "avg": 35.68, "sr": 59.2, "milestones": "13 Hundreds & 200+ Wickets" },
+      "odi": { "matches": 114, "runs": 3463, "wickets": 74, "avg": 41.22, "sr": 95.6, "milestones": "84* in 2019 WC Final" },
+      "t20i": { "matches": 43, "runs": 585, "wickets": 26, "avg": 21.66, "sr": 128.0, "milestones": "52* in 2022 T20WC Final" }
+    },
+    "signatureMoment": "84* at Lord's in the 2019 ODI World Cup Final and 52* at the MCG in the 2022 T20 World Cup Final."
+  },
+  {
+    "id": "lara",
+    "name": "Brian Lara",
+    "jersey": "09",
+    "country": "WI",
+    "decade": "1990s",
+    "role": "Batter",
+    "nickname": "Prince of Port of Spain",
+    "hallOfFame": 2012,
+    "iccTitles": [
+      { "trophy": "Champions Trophy", "year": "2004 (C)" }
+    ],
+    "stats": {
+      "test": { "matches": 131, "runs": 11953, "wickets": 0, "avg": 52.88, "sr": 60.5, "milestones": "Highest Test Score (400*)" },
+      "odi": { "matches": 299, "runs": 10405, "wickets": 4, "avg": 40.48, "sr": 79.5, "milestones": "19 ODI Hundreds" },
+      "t20i": { "matches": 0, "runs": 0, "wickets": 0, "avg": 0, "sr": 0, "milestones": "375 & 400* in Tests" }
+    },
+    "signatureMoment": "Unbeaten 400* vs England in Antigua (2004)—the highest individual score in Test cricket history."
+  },
+  {
+    "id": "gayle",
+    "name": "Chris Gayle",
+    "jersey": "333",
+    "country": "WI",
+    "decade": "2010s",
+    "role": "Batter",
+    "nickname": "Universe Boss",
+    "hallOfFame": null,
+    "iccTitles": [
+      { "trophy": "Champions Trophy", "year": "2004" },
+      { "trophy": "T20 World Cup", "year": "2012" },
+      { "trophy": "T20 World Cup", "year": "2016" }
+    ],
+    "stats": {
+      "test": { "matches": 103, "runs": 7214, "wickets": 73, "avg": 42.18, "sr": 60.2, "milestones": "2 Triple Centuries (333)" },
+      "odi": { "matches": 301, "runs": 10480, "wickets": 167, "avg": 37.83, "sr": 87.1, "milestones": "215 in 2015 ODI WC" },
+      "t20i": { "matches": 79, "runs": 1899, "wickets": 20, "avg": 27.92, "sr": 137.5, "milestones": "First T20I World Cup 100" }
+    },
+    "signatureMoment": "First batter to score a century in T20 Internationals (117 vs South Africa, 2007 T20 World Cup)."
+  },
+  {
+    "id": "akram",
+    "name": "Wasim Akram",
+    "jersey": "10",
+    "country": "PAK",
+    "decade": "1990s",
+    "role": "Bowler",
+    "nickname": "Sultan of Swing",
+    "hallOfFame": 2009,
+    "iccTitles": [
+      { "trophy": "ODI World Cup", "year": "1992 (POTM Final)" }
+    ],
+    "stats": {
+      "test": { "matches": 104, "runs": 2898, "wickets": 414, "avg": 23.62, "sr": 54.6, "milestones": "257* vs Zimbabwe" },
+      "odi": { "matches": 356, "runs": 3717, "wickets": 502, "avg": 23.52, "sr": 36.2, "milestones": "First to 500 ODI Wickets" },
+      "t20i": { "matches": 0, "runs": 0, "wickets": 0, "avg": 0, "sr": 0, "milestones": "916 Int'l Wickets" }
+    },
+    "signatureMoment": "3/49 including back-to-back unplayable deliveries in the 1992 ODI World Cup Final at the MCG."
+  },
+  {
+    "id": "murali",
+    "name": "Muttiah Muralitharan",
+    "jersey": "08",
+    "country": "SL",
+    "decade": "2000s",
+    "role": "Bowler",
+    "nickname": "The Wizard",
+    "hallOfFame": 2016,
+    "iccTitles": [
+      { "trophy": "ODI World Cup", "year": "1996" },
+      { "trophy": "Champions Trophy", "year": "2002" }
+    ],
+    "stats": {
+      "test": { "matches": 133, "runs": 1261, "wickets": 800, "avg": 22.72, "sr": 55.0, "milestones": "800 Test Wickets" },
+      "odi": { "matches": 350, "runs": 674, "wickets": 534, "avg": 23.08, "sr": 35.2, "milestones": "534 ODI Wickets" },
+      "t20i": { "matches": 12, "runs": 1, "wickets": 13, "avg": 22.84, "sr": 21.6, "milestones": "1,347 Int'l Wickets" }
+    },
+    "signatureMoment": "Reached 800 Test wickets on the very last ball of his Test career in Galle (2010)."
+  },
+  {
+    "id": "williamson",
+    "name": "Kane Williamson",
+    "jersey": "22",
+    "country": "NZ",
+    "decade": "2020s",
+    "role": "Batter",
+    "nickname": "Steady the Ship",
+    "hallOfFame": null,
+    "iccTitles": [
+      { "trophy": "World Test Championship", "year": "2021 (C)" }
+    ],
+    "stats": {
+      "test": { "matches": 106, "runs": 9320, "wickets": 30, "avg": 54.82, "sr": 51.6, "milestones": "33 Test Hundreds" },
+      "odi": { "matches": 171, "runs": 7110, "wickets": 37, "avg": 48.69, "sr": 81.5, "milestones": "2019 ODI WC POTT" },
+      "t20i": { "matches": 93, "runs": 2575, "wickets": 6, "avg": 33.44, "sr": 123.0, "milestones": "85 in 2021 T20WC Final" }
+    },
+    "signatureMoment": "Captained New Zealand to victory in the inaugural 2021 ICC World Test Championship Final."
+  },
+  {
+    "id": "shakib",
+    "name": "Shakib Al Hasan",
+    "jersey": "75",
+    "country": "BAN",
+    "decade": "2010s",
+    "role": "All-Rounder",
+    "nickname": "Nawab of Magura",
+    "hallOfFame": null,
+    "iccTitles": [],
+    "stats": {
+      "test": { "matches": 71, "runs": 4609, "wickets": 246, "avg": 37.77, "sr": 61.5, "milestones": "217 Highest Score" },
+      "odi": { "matches": 247, "runs": 7570, "wickets": 317, "avg": 37.29, "sr": 82.7, "milestones": "606 Runs & 11 Wkts in 2019 WC" },
+      "t20i": { "matches": 129, "runs": 2551, "wickets": 149, "avg": 23.19, "sr": 121.1, "milestones": "14,000+ Runs & 700+ Wkts" }
+    },
+    "signatureMoment": "First player in World Cup history to score 600+ runs and take 10+ wickets in a single edition (2019)."
+  },
+  {
+    "id": "rashid",
+    "name": "Rashid Khan",
+    "jersey": "19",
+    "country": "AFG",
+    "decade": "2020s",
+    "role": "Bowler",
+    "nickname": "Karamat Khan",
+    "hallOfFame": null,
+    "iccTitles": [],
+    "stats": {
+      "test": { "matches": 6, "runs": 154, "wickets": 45, "avg": 20.44, "sr": 35.8, "milestones": "11/104 vs Zimbabwe" },
+      "odi": { "matches": 111, "runs": 1350, "wickets": 198, "avg": 19.95, "sr": 28.4, "milestones": "Fastest to 100 ODI Wickets" },
+      "t20i": { "matches": 96, "runs": 480, "wickets": 161, "avg": 13.80, "sr": 13.6, "milestones": "Led AFG to 2024 T20WC Semis" }
+    },
+    "signatureMoment": "Captained Afghanistan to their historic first-ever ICC World Cup Semi-Final in 2024."
+  }
+]

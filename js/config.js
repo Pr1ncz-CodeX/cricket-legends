@@ -1,0 +1,41 @@
+const NATION_THEMES = {
+  IND: { name: "India", primary: "#1d4ed8", secondary: "#f59e0b" },
+  AUS: { name: "Australia", primary: "#ca8a04", secondary: "#15803d" },
+  ENG: { name: "England", primary: "#1e3a8a", secondary: "#ef4444" },
+  SA:  { name: "South Africa", primary: "#15803d", secondary: "#eab308" },
+  WI:  { name: "West Indies", primary: "#881337", secondary: "#facc15" },
+  NZ:  { name: "New Zealand", primary: "#1e293b", secondary: "#38bdf8" },
+  PAK: { name: "Pakistan", primary: "#065f46", secondary: "#34d399" },
+  SL:  { name: "Sri Lanka", primary: "#1d4ed8", secondary: "#eab308" },
+  BAN: { name: "Bangladesh", primary: "#047857", secondary: "#dc2626" },
+  AFG: { name: "Afghanistan", primary: "#1e40af", secondary: "#dc2626" }
+};
+
+const ICC_TOURNAMENTS = [
+  { year: 2026, type: "T20 World Cup", champion: "India", runnerUp: "New Zealand", venue: "Ahmedabad" },
+  { year: 2025, type: "World Test Championship", champion: "South Africa", runnerUp: "Australia", venue: "Lord's, London" },
+  { year: 2025, type: "Champions Trophy", champion: "India", runnerUp: "New Zealand", venue: "Dubai" },
+  { year: 2024, type: "T20 World Cup", champion: "India", runnerUp: "South Africa", venue: "Bridgetown, Barbados" },
+  { year: 2023, type: "ODI World Cup", champion: "Australia", runnerUp: "India", venue: "Ahmedabad" },
+  { year: 2023, type: "World Test Championship", champion: "Australia", runnerUp: "India", venue: "The Oval, London" },
+  { year: 2022, type: "T20 World Cup", champion: "England", runnerUp: "Pakistan", venue: "MCG, Melbourne" },
+  { year: 2021, type: "T20 World Cup", champion: "Australia", runnerUp: "New Zealand", venue: "Dubai" },
+  { year: 2021, type: "World Test Championship", champion: "New Zealand", runnerUp: "India", venue: "Southampton" },
+  { year: 2019, type: "ODI World Cup", champion: "England", runnerUp: "New Zealand", venue: "Lord's, London" },
+  { year: 2017, type: "Champions Trophy", champion: "Pakistan", runnerUp: "India", venue: "The Oval, London" },
+  { year: 2016, type: "T20 World Cup", champion: "West Indies", runnerUp: "England", venue: "Eden Gardens, Kolkata" },
+  { year: 2015, type: "ODI World Cup", champion: "Australia", runnerUp: "New Zealand", venue: "MCG, Melbourne" },
+  { year: 2013, type: "Champions Trophy", champion: "India", runnerUp: "England", venue: "Edgbaston, Birmingham" },
+  { year: 2012, type: "T20 World Cup", champion: "West Indies", runnerUp: "Sri Lanka", venue: "Colombo" },
+  { year: 2011, type: "ODI World Cup", champion: "India", runnerUp: "Sri Lanka", venue: "Wankhede, Mumbai" },
+  { year: 2007, type: "ODI World Cup", champion: "Australia", runnerUp: "Sri Lanka", venue: "Bridgetown, Barbados" },
+  { year: 2007, type: "T20 World Cup", champion: "India", runnerUp: "Pakistan", venue: "Johannesburg" },
+  { year: 2003, type: "ODI World Cup", champion: "Australia", runnerUp: "India", venue: "Johannesburg" },
+  { year: 1999, type: "ODI World Cup", champion: "Australia", runnerUp: "Pakistan", venue: "Lord's, London" },
+  { year: 1996, type: "ODI World Cup", champion: "Sri Lanka", runnerUp: "Australia", venue: "Lahore" },
+  { year: 1992, type: "ODI World Cup", champion: "Pakistan", runnerUp: "England", venue: "MCG, Melbourne" },
+  { year: 1987, type: "ODI World Cup", champion: "Australia", runnerUp: "England", venue: "Eden Gardens, Kolkata" },
+  { year: 1983, type: "ODI World Cup", champion: "India", runnerUp: "West Indies", venue: "Lord's, London" },
+  { year: 1979, type: "ODI World Cup", champion: "West Indies", runnerUp: "England", venue: "Lord's, London" },
+  { year: 1975, type: "ODI World Cup", champion: "West Indies", runnerUp: "Australia", venue: "Lord's, London" }
+];

@@ -11,14 +11,12 @@
   <link rel="stylesheet" href="css/layout.css" />
 </head>
 <body>
-  <!-- Dynamic National Theme Ambient Shader Background -->
   <div class="ambient-bg" aria-hidden="true">
     <div class="ambient-orb orb-1"></div>
     <div class="ambient-orb orb-2"></div>
     <div class="grid-overlay"></div>
   </div>
 
-  <!-- Top Navigation Bar -->
   <header class="topbar">
     <div class="brand">
       <span class="brand-badge">ICC ARCHIVE</span>
@@ -26,9 +24,11 @@
     </div>
 
     <nav class="main-nav" aria-label="Primary Views">
-      <button class="nav-btn active" data-view="players">Legends Roster</button>
-      <button class="nav-btn" data-view="trophies">ICC Roll of Honor</button>
-      <button class="nav-btn" data-view="compare">Head-to-Head</button>
+      <button class="nav-btn active" data-view="players">Roster</button>
+      <button class="nav-btn" data-view="dreamxi">Dream XI</button>
+      <button class="nav-btn" data-view="leaderboards">Leaderboards</button>
+      <button class="nav-btn" data-view="trophies">ICC Finals</button>
+      <button class="nav-btn" data-view="compare">H2H</button>
     </nav>
 
     <a href="https://my-portfolio-green-zeta-91.vercel.app" target="_blank" rel="noopener noreferrer" class="portfolio-btn">
@@ -44,8 +44,8 @@
     <section id="view-players" class="view-section active">
       <div class="hero-banner">
         <div>
-          <p class="eyebrow">INTERNATIONAL CRICKET HALL OF FAME</p>
-          <h2>World Cup Winners &amp; Immortal Icons</h2>
+          <p class="eyebrow">INTERNATIONAL CRICKET ENCYCLOPEDIA</p>
+          <h2>World Champions &amp; Hall of Famers</h2>
         </div>
         <div class="format-switcher" role="group" aria-label="International Format">
           <button class="fmt-btn active" data-format="odi">ODI</button>
@@ -54,7 +54,7 @@
         </div>
       </div>
 
-      <!-- Multi-Criteria Filter Matrix -->
+      <!-- Filter & Sort Matrix -->
       <div class="filter-bar">
         <div class="filter-group">
           <label for="country-filter">Nation</label>
@@ -62,21 +62,38 @@
             <option value="ALL">All Nations</option>
             <option value="IND">India</option>
             <option value="AUS">Australia</option>
+            <option value="ENG">England</option>
             <option value="SA">South Africa</option>
             <option value="WI">West Indies</option>
-            <option value="ENG">England</option>
             <option value="NZ">New Zealand</option>
+            <option value="PAK">Pakistan</option>
+            <option value="SL">Sri Lanka</option>
+            <option value="BAN">Bangladesh</option>
+            <option value="AFG">Afghanistan</option>
           </select>
         </div>
 
         <div class="filter-group">
-          <label for="title-filter">ICC Title Won</label>
+          <label for="title-filter">ICC Title / Honor</label>
           <select id="title-filter">
             <option value="ALL">All Players &amp; Champions</option>
+            <option value="HOF">ICC Hall of Fame Inductees</option>
             <option value="ODI World Cup">ODI World Cup Winner</option>
             <option value="T20 World Cup">T20 World Cup Winner</option>
             <option value="World Test Championship">WTC Champion</option>
             <option value="Champions Trophy">Champions Trophy Winner</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="decade-filter">Era / Decade</label>
+          <select id="decade-filter">
+            <option value="ALL">All Eras</option>
+            <option value="1970s-80s">1970s – 1980s</option>
+            <option value="1990s">1990s</option>
+            <option value="2000s">2000s</option>
+            <option value="2010s">2010s</option>
+            <option value="2020s">2020s – Present</option>
           </select>
         </div>
 
@@ -87,20 +104,78 @@
             <option value="Batter">Batter</option>
             <option value="All-Rounder">All-Rounder</option>
             <option value="Bowler">Bowler</option>
-            <option value="Wicketkeeper">Wicketkeeper-Batter</option>
+            <option value="Wicketkeeper">Wicketkeeper</option>
           </select>
         </div>
 
-        <div class="filter-group search-group">
+        <div class="filter-group">
+          <label for="sort-select">Sort By</label>
+          <select id="sort-select">
+            <option value="titles">Most ICC Titles</option>
+            <option value="runs">Most Format Runs</option>
+            <option value="wickets">Most Format Wickets</option>
+            <option value="avg">Highest Format Average</option>
+            <option value="az">Alphabetical (A–Z)</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
           <label for="search-input">Search</label>
-          <input type="text" id="search-input" placeholder="Name, jersey, or nickname..." />
+          <input type="text" id="search-input" placeholder="Name, jersey, nickname..." />
         </div>
       </div>
 
+      <!-- A-Z Quick Jump Strip -->
+      <div class="alphabet-bar" id="alphabet-bar" aria-label="Filter by starting letter"></div>
+
+      <div class="roster-meta">
+        <span id="roster-count">Loading archive...</span>
+      </div>
+
       <div id="players-grid" class="players-grid"></div>
+
+      <div class="load-more-wrap">
+        <button id="load-more-btn" class="load-more-btn" style="display:none;">Load More Players</button>
+      </div>
     </section>
 
-    <!-- VIEW 2: ICC ROLL OF HONOR -->
+    <!-- VIEW 2: DREAM XI BUILDER -->
+    <section id="view-dreamxi" class="view-section">
+      <div class="hero-banner">
+        <div>
+          <p class="eyebrow">ALL-TIME INTERNATIONAL SQUAD</p>
+          <h2>Build Your Dream Playing XI</h2>
+        </div>
+        <div class="dream-actions">
+          <button id="clear-xi-btn" class="secondary-btn">Reset XI</button>
+          <button id="copy-xi-btn" class="primary-btn">Copy Team Sheet</button>
+        </div>
+      </div>
+
+      <div class="dream-layout">
+        <div class="dream-slots" id="dream-slots"></div>
+        <aside class="dream-telemetry" id="dream-telemetry"></aside>
+      </div>
+    </section>
+
+    <!-- VIEW 3: MILESTONE LEADERBOARDS -->
+    <section id="view-leaderboards" class="view-section">
+      <div class="hero-banner">
+        <div>
+          <p class="eyebrow">ARCHIVE TELEMETRY RANKINGS</p>
+          <h2>All-Time Milestone Leaderboards</h2>
+        </div>
+        <div class="format-switcher" role="group" aria-label="Leaderboard Format">
+          <button class="lb-fmt-btn active" data-format="odi">ODI</button>
+          <button class="lb-fmt-btn" data-format="test">TEST</button>
+          <button class="lb-fmt-btn" data-format="t20i">T20I</button>
+        </div>
+      </div>
+
+      <div id="leaderboards-grid" class="leaderboards-grid"></div>
+    </section>
+
+    <!-- VIEW 4: ICC ROLL OF HONOR -->
     <section id="view-trophies" class="view-section">
       <div class="hero-banner">
         <div>
@@ -119,7 +194,7 @@
       <div id="trophies-grid" class="trophies-grid"></div>
     </section>
 
-    <!-- VIEW 3: HEAD-TO-HEAD COMPARE -->
+    <!-- VIEW 5: HEAD-TO-HEAD COMPARE -->
     <section id="view-compare" class="view-section">
       <div class="hero-banner">
         <div>
@@ -157,7 +232,7 @@
     </div>
   </div>
 
-  <script src="js/data.js"></script>
+  <script src="js/config.js"></script>
   <script src="js/ui.js"></script>
   <script src="js/app.js"></script>
 </body>
