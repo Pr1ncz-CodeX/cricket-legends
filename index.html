@@ -39,11 +39,14 @@
   </header>
 
   <main class="container">
-    <!-- Live Broadcast Commentary HUD -->
+    <!-- Live Broadcast Commentary & Sound FX HUD -->
     <div class="broadcast-hud" role="status" aria-live="polite">
       <span class="hud-live-dot">LIVE BROADCAST</span>
       <div id="hud-ticker" class="hud-ticker-text">Initializing International Cricket Telemetry...</div>
-      <button id="voice-toggle" class="voice-toggle-btn" title="Toggle Announcer Voice">🔇 Voice: OFF</button>
+      <div class="hud-controls">
+        <button id="sfx-toggle" class="voice-toggle-btn active" title="Toggle Stadium Sound FX">🏏 Stadium FX: ON</button>
+        <button id="voice-toggle" class="voice-toggle-btn" title="Toggle Announcer Voice">🔇 Voice: OFF</button>
+      </div>
     </div>
 
     <!-- =========================================================
@@ -59,7 +62,7 @@
           </p>
           <div class="hero-cta-row">
             <button class="primary-btn go-to-archive-btn">Explore Players &amp; ICC Legends &rarr;</button>
-            <a href="#chapter-origins" class="secondary-btn" style="text-decoration:none;">Read Chronicle (~2,000 Words)</a>
+            <a href="#chapter-origins" class="secondary-btn" style="text-decoration:none;">Read Chronicle</a>
           </div>
         </div>
 
@@ -85,17 +88,17 @@
         <a href="#chapter-origins">I. Origins &amp; Evolution</a>
         <a href="#chapter-mechanics">II. Field, Pitch &amp; Rules</a>
         <a href="#chapter-formats">III. The Three Formats</a>
-        <a href="#chapter-craft">IV. Batting, Bowling &amp; Fielding</a>
+        <a href="#chapter-craft">IV. Shot &amp; Delivery Simulator</a>
         <a href="#chapter-icc">V. ICC World Championships</a>
         <a href="#chapter-modern">VI. Modern Analytics &amp; Future</a>
       </nav>
 
-      <!-- Key Telemetry Strip -->
+      <!-- Animated Telemetry Counter Strip -->
       <div class="stat-banner-strip">
-        <div class="banner-metric"><strong>22 Yards</strong><span>Length of the Pitch</span></div>
-        <div class="banner-metric"><strong>11 Players</strong><span>Per International Side</span></div>
-        <div class="banner-metric"><strong>3 Formats</strong><span>Test, ODI &amp; T20I</span></div>
-        <div class="banner-metric"><strong>1877</strong><span>First Official Test Match</span></div>
+        <div class="banner-metric"><strong class="count-up" data-target="22" data-suffix=" Yards">22 Yards</strong><span>Length of the Pitch</span></div>
+        <div class="banner-metric"><strong class="count-up" data-target="11" data-suffix=" Players">11 Players</strong><span>Per International Side</span></div>
+        <div class="banner-metric"><strong class="count-up" data-target="3" data-suffix=" Formats">3 Formats</strong><span>Test, ODI &amp; T20I</span></div>
+        <div class="banner-metric"><strong class="count-up" data-target="1877" data-suffix="">1877</strong><span>First Official Test Match</span></div>
       </div>
 
       <!-- CHAPTER 1 -->
@@ -176,7 +179,7 @@
         </div>
       </section>
 
-      <!-- CHAPTER 4 -->
+      <!-- CHAPTER 4 WITH INTERACTIVE WAGON WHEEL SIMULATOR -->
       <section id="chapter-craft" class="chronicle-section">
         <div class="section-tag">CHAPTER IV</div>
         <h3>The Art of Batting, Bowling, and Fielding</h3>
@@ -192,6 +195,38 @@
         <p>
           <strong>Fielding and Wicketkeeping:</strong> Once treated as a passive interval between batting turns, modern fielding has become an athletic weapon. Slip catchers standing inches apart behind the batter rely on split-second peripheral reflexes to snare edges traveling at over 120 km/h, while boundary riders routinely leap over the rope to parry sixes back into play. Anchoring the entire fielding unit is the wicketkeeper—squatting behind the stumps for hundreds of overs, standing up to the wickets for spinners, and executing lightning-fast stumpings in fractions of a second.
         </p>
+
+        <!-- Interactive 360 Wagon Wheel & Delivery Simulator -->
+        <div id="wagon-wheel-sandbox" class="ww-sandbox">
+          <div class="ww-controls">
+            <span class="fmt-pill">INTERACTIVE GRAPHICAL SIMULATOR</span>
+            <h4>Tap a Shot or Delivery to Trace Trajectory</h4>
+            <div class="ww-btn-grid">
+              <button class="ww-btn active" data-shot="cover">Cover Drive (4)</button>
+              <button class="ww-btn" data-shot="helicopter">Helicopter Shot (6)</button>
+              <button class="ww-btn" data-shot="pull">Pull Shot (6)</button>
+              <button class="ww-btn" data-shot="scoop">360° Scoop (6)</button>
+              <button class="ww-btn" data-shot="yorker">149 km/h Yorker (W)</button>
+              <button class="ww-btn" data-shot="googly">Wrist-Spin Googly (W)</button>
+            </div>
+            <div class="ww-readout">
+              <strong id="ww-shot-title">Classical Cover Drive</strong>
+              <span id="ww-shot-meta">138 km/h off bat • Extra Cover Boundary (4 Runs)</span>
+              <p id="ww-shot-desc"></p>
+            </div>
+          </div>
+
+          <div class="ww-visual">
+            <svg width="100%" height="235" viewBox="0 0 360 235" aria-label="Interactive Wagon Wheel">
+              <ellipse cx="180" cy="118" rx="164" ry="102" fill="rgba(21, 128, 61, 0.16)" stroke="rgba(74, 222, 128, 0.4)" stroke-width="2" />
+              <ellipse cx="180" cy="118" rx="92" ry="58" fill="none" stroke="rgba(255, 255, 255, 0.16)" stroke-dasharray="4 4" />
+              <rect x="171" y="94" width="18" height="48" rx="2" fill="rgba(251, 191, 36, 0.28)" stroke="#fbbf24" />
+              <path id="ww-ball-trail" d="M 180 112 Q 130 95 46 68" fill="none" stroke="#38bdf8" stroke-width="3.5" stroke-linecap="round" />
+              <circle id="ww-impact-dot" cx="46" cy="68" r="5" fill="#fbbf24" />
+              <circle cx="180" cy="112" r="4" fill="#fff" />
+            </svg>
+          </div>
+        </div>
       </section>
 
       <!-- CHAPTER 5 -->
@@ -234,7 +269,6 @@
          PAGE 2: PLAYERS, LEGENDS, DREAM XI, LEADERBOARDS & H2H
          ========================================================= -->
     <div id="page-archive" class="page-container">
-      <!-- Sub-Navigation Bar for Page 2 -->
       <div class="archive-subbar">
         <button class="secondary-btn back-to-chronicle-btn">&larr; About Cricket</button>
         <nav class="main-nav" aria-label="Archive Tools">
@@ -260,7 +294,6 @@
           </div>
         </div>
 
-        <!-- Filter & Sort Matrix -->
         <div class="filter-bar">
           <div class="filter-group">
             <label for="country-filter">Nation</label>
@@ -331,7 +364,6 @@
           </div>
         </div>
 
-        <!-- A-Z Quick Jump Strip -->
         <div class="alphabet-bar" id="alphabet-bar" aria-label="Filter by starting letter"></div>
 
         <div class="roster-meta">
@@ -440,6 +472,7 @@
   </div>
 
   <script src="js/config.js"></script>
+  <script src="js/stadium-canvas.js"></script>
   <script src="js/fx.js"></script>
   <script src="js/ui.js"></script>
   <script src="js/app.js"></script>

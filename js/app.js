@@ -28,6 +28,8 @@ function switchMainPage(targetPage) {
   });
   window.scrollTo({ top: 0, behavior: "smooth" });
 
+  if (window.StadiumAudio) StadiumAudio.playBatTok();
+
   if (targetPage === "chronicle") {
     FX.speakBroadcast("Page 1: The Global Chronicle of International Cricket — Origins, Laws, Formats, and World Championships.");
   } else {
@@ -91,6 +93,9 @@ function updateCompareView() {
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
+  // Start 60 FPS Floodlight Canvas, Scroll Counters & Wagon Wheel Sandbox immediately
+  if (window.StadiumFX) StadiumFX.init();
+
   try {
     const res = await fetch("data/players.json");
     ALL_PLAYERS = await res.json();
@@ -123,6 +128,17 @@ document.addEventListener("DOMContentLoaded", async () => {
   });
   document.getElementById("brand-home").addEventListener("click", () => switchMainPage("chronicle"));
 
+  // Stadium Web Audio FX Toggle
+  const sfxBtn = document.getElementById("sfx-toggle");
+  if (sfxBtn && window.StadiumAudio) {
+    sfxBtn.addEventListener("click", e => {
+      StadiumAudio.enabled = !StadiumAudio.enabled;
+      e.target.classList.toggle("active", StadiumAudio.enabled);
+      e.target.textContent = StadiumAudio.enabled ? "🏏 Stadium FX: ON" : "🔇 Stadium FX: OFF";
+      if (StadiumAudio.enabled) StadiumAudio.playTrophyChime();
+    });
+  }
+
   // Voice Commentary Toggle
   document.getElementById("voice-toggle").addEventListener("click", e => {
     FX.voiceEnabled = !FX.voiceEnabled;
@@ -144,6 +160,8 @@ document.addEventListener("DOMContentLoaded", async () => {
       document.querySelectorAll(".view-section").forEach(sec => sec.classList.remove("active"));
       document.getElementById(`view-${view}`).classList.add("active");
 
+      if (window.StadiumAudio) StadiumAudio.playBatTok();
+
       const viewMessages = {
         players: "Browsing International Legends Roster. Click any player to open their holographic dossier.",
         dreamxi: "Stadium Tactical Map online. Assemble your All-Time International Playing XI.",
@@ -162,6 +180,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       btn.classList.add("active");
       state.format = btn.dataset.format;
       updatePlayersView(false);
+      if (window.StadiumAudio) StadiumAudio.playBatTok();
       FX.speakBroadcast(`Telemetry switched to ${state.format.toUpperCase()} international statistics.`);
     });
   });
@@ -172,6 +191,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       btn.classList.add("active");
       state.lbFormat = btn.dataset.format;
       UI.renderLeaderboards(ALL_PLAYERS, state.lbFormat);
+      if (window.StadiumAudio) StadiumAudio.playBatTok();
     });
   });
 
@@ -181,6 +201,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       btn.classList.add("active");
       state.compareFormat = btn.dataset.format;
       updateCompareView();
+      if (window.StadiumAudio) StadiumAudio.playBatTok();
     });
   });
 
@@ -190,6 +211,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       const key = id.replace("-filter", "").replace("-select", "");
       state[key] = e.target.value;
       if (key === "country" && state.country !== "ALL") UI.applyNationalTheme(state.country);
+      if (key === "title" && state.title !== "ALL" && window.StadiumAudio) StadiumAudio.playTrophyChime();
       updatePlayersView(true);
     });
   });
@@ -206,12 +228,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     state.letter = btn.dataset.letter;
     UI.renderAlphabetBar(state.letter);
     updatePlayersView(true);
+    if (window.StadiumAudio) StadiumAudio.playBatTok();
   });
 
   // Pagination Load More
   document.getElementById("load-more-btn").addEventListener("click", () => {
     state.visibleLimit += PAGE_SIZE;
     updatePlayersView(false);
+    if (window.StadiumAudio) StadiumAudio.playBatTok();
   });
 
   // Dream XI Events
@@ -223,6 +247,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const picked = ALL_PLAYERS.find(p => p.id === sel.value);
     if (picked) {
       UI.applyNationalTheme(picked.country);
+      if (window.StadiumAudio) StadiumAudio.playBatTok();
       FX.speakBroadcast(`${picked.name} drafted into slot #${Number(sel.dataset.slot) + 1} of your Dream XI.`, true);
     }
   });
@@ -239,6 +264,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       return `${i + 1}. ${p ? `${p.name} (${p.country})` : "Empty"}`;
     });
     navigator.clipboard.writeText(`MY ALL-TIME INTERNATIONAL XI:\n${lines.join("\n")}`);
+    if (window.StadiumAudio) StadiumAudio.playTrophyChime();
     FX.speakBroadcast("All-Time International Dream XI copied to clipboard!", true);
   });
 
@@ -249,6 +275,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       tab.classList.add("active");
       state.trophyTab = tab.dataset.trophy;
       updateTrophiesView();
+      if (window.StadiumAudio) StadiumAudio.playTrophyChime();
     });
   });
 

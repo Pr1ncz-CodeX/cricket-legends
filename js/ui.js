@@ -5,6 +5,7 @@ const UI = {
     root.style.setProperty("--theme-primary", theme.primary);
     root.style.setProperty("--theme-secondary", theme.secondary);
     root.style.setProperty("--theme-glow", `${theme.primary}66`);
+    if (window.StadiumFX) StadiumFX.setColors(theme.primary, theme.secondary);
   },
 
   renderAlphabetBar(activeLetter) {
@@ -156,6 +157,7 @@ const UI = {
     const theme = NATION_THEMES[player.country] || NATION_THEMES.IND;
     const modal = document.getElementById("dossier-modal");
     const content = document.getElementById("dossier-content");
+    if (window.StadiumAudio) StadiumAudio.playBatTok();
 
     FX.speakBroadcast(`${player.name} — "${player.nickname}". ${player.signatureMoment}`, true);
 
